@@ -17,10 +17,35 @@
  */
 
 #include <stdint.h>
+#include <stdio.h>
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
+
+void change_access_lvl_to_unprivilaged();
+void generate_interrupt();
+void HardFault_Handler();
+
+/*
+ * PREVILAGED ACCESS MODES AND UN PREVILAGED ACCESS MODES:
+ * - the main function is always executed in the thread mode,
+ * - in the program below we set the control registers to 1 -> unprivileged access mode
+ * - what happens now is that we cannot turn back the access mode to privileged
+ * - this can only be done by triggering a system exception or an interrupt
+ * - with the interrupt, the kernel switches to the handler mode where control register can be set to 0
+ * - exiting this, we can return back to the thread mode of operation
+ * */
+
+/* T BIT
+ * - T bit is a control to switch between two Instruction set architecture - ISA
+ * - to run ARM based ISA, T bit should be set to 0
+ * - to run thumb ISA, T bit must be set to 1
+ *
+ * NOTE
+ *  while loading any function to the program counter, the compiler changes the address to set the T bit to 1 in arm Mx processors
+ * this is because the Mx processors only have the thumb ISA
+ * */
 
 int main(void)
 {
@@ -46,14 +71,18 @@ void change_access_lvl_to_unprivilaged() {
 }
 
 void generate_interrupt() {
-	unint32_t *pSTIR = (unint32_t*)0xE000EF00;
-	unint32_t *pISER0 = (unint32_t*)0xE000E100;
+	uint32_t *pSTIR = (uint32_t*)0xE000EF00;
+	uint32_t *pISER0 = (uint32_t*)0xE000E100;
 
 	// enable IRQ3 interrupt
 	*pISER0 |= (1 << 3);
 
 	// generate an interrupt from software to IRQ3
 	*pSTIR |= (3 & 0x1FF);
-
-
 }
+
+void HardFault_Handler() {
+	printf("hard fault detected");
+	while(1);
+}
+
