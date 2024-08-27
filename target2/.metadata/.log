@@ -4966,3 +4966,12 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 
 !ENTRY org.eclipse.cdt.dsf.ui 2 0 2024-08-27 17:52:04.950
 !MESSAGE Unable to locate file: /build/newlib-38V0JC/newlib-4.4.0.20231231/build_nano/arm-none-eabi/thumb/v7e-m+fp/hard/newlib/../../../../../../newlib/libc/reent/writer.c
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-27 21:19:39.379
+!MESSAGE Indexed 'fault_generation' (2 sources, 51 headers) in 0.562 sec: 1,991 declarations; 2,708 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.043%)
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-27 21:20:04.140
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-27 21:29:39.920
+!MESSAGE No .vrapperrc or _vrapperrc found.
