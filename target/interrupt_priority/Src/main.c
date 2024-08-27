@@ -17,13 +17,89 @@
  */
 
 #include <stdint.h>
+#include <stdio.h>
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+// these values are from the reference manual
+#define IRQNO_TIMER2 28   // this is the bit position of the timer2
+#define IRQNO_I2C_EV 31   // similarly for i2c
+
+// this is from the generic user guide
+uint32_t *pNVIC_IPR_BASE = (uint32_t*) 0xE000E400;
+uint32_t *pNVIC_ISER_BASE = (uint32_t*) 0xE000E100;
+uint32_t *pNVIC_ISPR_BASE = (uint32_t*) 0XE000E200;
+
+void set_priotity_for_irqs(uint8_t irq_number,uint8_t priority_value);
+
+
 int main(void)
 {
-    /* Loop forever */
+
+	// step 1. configure the priority for the peripherals
+	set_priotity_for_irqs(IRQNO_TIMER2, 0x80);
+	set_priotity_for_irqs(IRQNO_I2C_EV, 0x70);
+
+	// step 2. set the interrupt pending bit in the NVIC pending register
+	*pNVIC_ISPR_BASE |= (1 << IRQNO_TIMER2 );  // set only for timer2
+
+	// step 3.enable the IRQs in NVIC ISER
+	*pNVIC_ISER_BASE |= (1 << IRQNO_I2C_EV );
+	*pNVIC_ISER_BASE |= (1 << IRQNO_TIMER2 );
+
+	/* Loop forever */
 	for(;;);
+}
+
+
+void set_priotity_for_irqs(uint8_t irq_number,uint8_t priority_value) {
+	/*
+	 * the interrupt priority register - IPR is divided into 4 sections
+	 * each section is of 8 bit wide
+	 * each section corresponds to 1 IRQ number
+	 *
+	 * for ex:
+	 * given IRQ number = 5, priority value = 0x8
+	 *
+	 * - we have IPRs from 0 to 59, we need to figure out where the IPR falls for the given IRQ number
+	 * - our given IRQ is 5, so it can't be IPR0 as IPR0 is from 0 to 3
+	 * - so given IRQ number % 4, in our case this gives us 1, so we have to use IPR1
+	 * - to calculate the amount of bits we need to left shift, we have to multiply with the width of each IPR which is
+	 * - 8, so we have: 5 % 4 = 1, 1 * 8 = 8
+	 * */
+
+
+
+	// step 1 find our IPRx
+	uint8_t iprx = irq_number / 4;
+	uint32_t *ipr = pNVIC_IPR_BASE + iprx;
+
+	// step 2. position in the IPRx
+	uint8_t position = (irq_number %4) *8;
+
+	// step 3. set the priority
+	*ipr &= ~(0xFF << position);  // clear the bits first
+	*ipr |= (priority_value << position);  // set the priority
+}
+
+
+void TIM2_IRQHandler() {
+	printf("interupt in timer 2\n");
+	// jus for demo
+	// set the pending bit for i2c1
+	// with a priority of 0x80, the I2C handler interrupt is not triggeered as TIM2 has a higher priority value
+	// than I2C
+	// but with a change of priority from 0x80 to 0x70 - higher prio
+	*pNVIC_ISPR_BASE |= (1 << IRQNO_I2C_EV );
+
+	// get stuck here
+	while(1);
+}
+
+
+void I2C1_EV_IRQHandler() {
+	// gets triggered if the priority set for i2c is  > tim2
+	printf("interupt in I2C1_EV_IRQHandler 2\n");
 }
