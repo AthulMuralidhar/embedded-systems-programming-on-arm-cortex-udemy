@@ -18,6 +18,8 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include "printer.h"
+
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
@@ -26,6 +28,10 @@
 
 uint32_t *pSHCSR_ADDRESS = (uint32_t*)0xE000ED24;      // System Handler Control and State Register
 uint32_t *pUFSR__ADDRESS = (uint32_t*)0xE000ED2A;  // Usage Fault Status Register
+
+
+
+
 
 int main(void)
 {
@@ -78,9 +84,71 @@ void BusFault_Handler() {
 	printf("exception in BusFault_Handlern");
 	while(1);
 }
-void UsageFault_Handler() {
-	printf("exception in UsageFault_Handler\n");
-	printf("USFR: %lx",(*pUFSR__ADDRESS) & 0xFFFF);
+
+__attribute__((naked)) void UsageFault_Handler() {
+	// we are using this naked function to write assembly code so that the compiler does not add
+	// prolog / epilogue instructions for the stack pointer
+	// we want to capture the unaltered stack pointer value
+	// this can be done like here - call the original handler as a naked function,
+	// Implement another C function to do other stuff
+
+	__asm ("MRS r0, MSP");
+	// branch to our C function after so that we can print
+	// the r0 is passed implicitly by default into the called by the caller
+	// so we will have pBaseStackFrame = r0, for use later in the following function
+	__asm ("B UsageFault_Handler_C");
+
+}
+
+void UsageFault_Handler_C(uint32_t *pBaseStackFrame) {
+	// printing the stack can be useful during debugging
+	// to print the stack, we need to know the address of the stack pointer SP
+	// we need to use assembly code to get the value of SP as these are internal registers and are
+	// not memory mapped
+
+
+	// use printer:
+    char buffer[50];
+    snprintf(buffer, sizeof(buffer), "exception in UsageFault_Handler\n");
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "USFR: %lx\n",(*pUFSR__ADDRESS) & 0xFFFF);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "pBaseStackFrame: %p\n",pBaseStackFrame);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or r0: %lx\n",pBaseStackFrame[0]);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or r1: %lx\n",pBaseStackFrame[1]);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or r2: %lx\n",pBaseStackFrame[2]);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or r3: %lx\n",pBaseStackFrame[3]);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or r12: %lx\n",pBaseStackFrame[4]);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or LR: %lx\n",pBaseStackFrame[5]);
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or PC: %lx\n",pBaseStackFrame[6]);  // Program Counter
+    ITM_SendString(buffer);
+
+    snprintf(buffer, sizeof(buffer), "value or xPSR: %lx\n",pBaseStackFrame[7]);  // Program Status Register
+    ITM_SendString(buffer);
+
+
+
+    // NOTE: the addresses above must half word or word aligned - this can then be looked up in the .list file
+    // half word aligned: random address % 2 == 0
+    // word aligned: random address % 4 == 0
+
+
 	while(1);
 }
 
