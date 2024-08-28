@@ -19,32 +19,29 @@
 #include <stdint.h>
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
 #include<stdio.h>
 #include<stdint.h>
 
 /* This function executes in THREAD MODE of the processor */
-void generate_interrupt()
-{
-	uint32_t *pSTIR  = (uint32_t*)0xE000EF00;
-	uint32_t *pISER0 = (uint32_t*)0xE000E100;
+void generate_interrupt() {
+	uint32_t *pSTIR = (uint32_t*) 0xE000EF00;
+	uint32_t *pISER0 = (uint32_t*) 0xE000E100;
 
 	//enable IRQ3 interrupt
-	*pISER0 |= ( 1 << 3);
+	*pISER0 |= (1 << 3);
 
 	//generate an interrupt from software for IRQ3
 	*pSTIR = (3 & 0x1FF);
 
 }
 
-
-
 /*
  * // NOTES:
-// MSP value, or SP value is:  0x2001fff8
-// this should first get decremented by 4, and at this address: 0x2001fff4 should be the new address of MSP
+ // MSP value, or SP value is:  0x2001fff8
+ // this should first get decremented by 4, and at this address: 0x2001fff4 should be the new address of MSP
  *at this address, we should find the xpr value: 0x1000013
  *
  * so the value at Link Register LR is 0xfffffff9 which is the EXEC_RETURN value discussed in the lecture
@@ -53,19 +50,17 @@ void generate_interrupt()
  * */
 
 /* This function executes in THREAD MODE of the processor */
-int main(void)
-{
+int main(void) {
 	printf("In thread mode : before interrupt\n");
 
 	generate_interrupt();
 
 	printf("In thread mode : after interrupt\n");
 
-	for(;;);
+	for (;;);
 }
 
 /* This function(ISR) executes in HANDLER MODE of the processor */
-void RTC_WKUP_IRQHandler(void)
-{
+void RTC_WKUP_IRQHandler(void) {
 	printf("In handler mode : ISR\n");
 }

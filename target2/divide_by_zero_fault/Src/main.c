@@ -25,7 +25,11 @@
 #endif
 
 uint32_t *pSHCSR_ADDRESS = (uint32_t*) 0xE000ED24; // System Handler Control and State Register
-uint32_t *pUFSR__ADDRESS = (uint32_t*) 0xE000ED2A; // Usage Fault Status Register
+uint32_t *pUFSR_ADDRESS = (uint32_t*) 0xE000ED2A; // Usage Fault Status Register
+uint32_t *pCCR_ADDRESS = (uint32_t*) 0xE000ED14; // Configuration and Control Register
+
+
+int divide(int x, int y);
 
 int main(void) {
 
@@ -35,23 +39,11 @@ int main(void) {
 	*pSHCSR_ADDRESS |= (1 << 17); // BusFault enable bit,
 	*pSHCSR_ADDRESS |= (1 << 18); // MemManage enable bit,
 
-	// step 3.force the processor to execute some undefined instructions
+	// step 2. enable divide by zero trap in the Configuration and Control Register
+	*pCCR_ADDRESS |= (1 << 4);  // enable the divide by zero trap
 
-	uint32_t *pRandom_SRAM_Location = (uint32_t*) 0x20010000;
-	*pRandom_SRAM_Location = 0xFFFFFFFF; // invalid op code
-
-	void (*some_address)(void);   // just a function pointer
-	// the + 1 is here to make the address of a function compatible to T bit specifications
-	// - if the address is even, we are forcing the process to run arm instructions - this is not what we want here
-	// - the Coretx m processor specifies that the t bit should always be one
-
-//	some_address = (void*) ((uint32_t*)pRandom_SRAM_Location + 0x00000001);  // <- for some reason i get a +4 value (0x20010004) and not a plus 1 value (0x20010001)
-//	some_address = (void*) 0x20010001;   // this generates a usage fault with 1 - UNDEFINSTR
-//	some_address = (void*) 0x20010000;   // this generates a usage fault with 2 - INVSTATE
-
-	some_address(); // so what this does is, invokes the function pointer and goes to 0x20010001 address
-
-	// step 4. analyze the faults
+	// step 3. attempt to divide by zero
+	divide(1, 0);
 
 	/* Loop forever */
 	for (;;);
@@ -66,42 +58,26 @@ void HardFault_Handler() {
 
 void MemManage_Handler() {
 	printf("exception in MemManage_Handler\n");
-	while (1)
-		;
+	while (1);
 }
 void BusFault_Handler() {
 	printf("exception in BusFault_Handlern");
-	while (1)
-		;
+	while (1);
 }
 
 __attribute__((naked)) void UsageFault_Handler() {
-	// we are using this naked function to write assembly code so that the compiler does not add
-	// prolog / epilogue instructions for the stack pointer
-	// we want to capture the unaltered stack pointer value
-	// this can be done like here - call the original handler as a naked function,
-	// Implement another C function to do other stuff
-
 	__asm ("MRS r0, MSP");
-	// branch to our C function after so that we can print
-	// the r0 is passed implicitly by default into the called by the caller
-	// so we will have pBaseStackFrame = r0, for use later in the following function
 	__asm ("B UsageFault_Handler_C");
 
 }
 
 void UsageFault_Handler_C(uint32_t *pBaseStackFrame) {
-	// printing the stack can be useful during debugging
-	// to print the stack, we need to know the address of the stack pointer SP
-	// we need to use assembly code to get the value of SP as these are internal registers and are
-	// not memory mapped
-
 	// use printer:
 	char buffer[50];
 	snprintf(buffer, sizeof(buffer), "exception in UsageFault_Handler\n");
 	ITM_SendString(buffer);
 
-	snprintf(buffer, sizeof(buffer), "USFR: %lx\n", (*pUFSR__ADDRESS) & 0xFFFF);
+	snprintf(buffer, sizeof(buffer), "USFR: %lx\n", (*pUFSR_ADDRESS) & 0xFFFF);
 	ITM_SendString(buffer);
 
 	snprintf(buffer, sizeof(buffer), "pBaseStackFrame: %p\n", pBaseStackFrame);
@@ -132,11 +108,11 @@ void UsageFault_Handler_C(uint32_t *pBaseStackFrame) {
 			pBaseStackFrame[7]);  // Program Status Register
 	ITM_SendString(buffer);
 
-	// NOTE: the addresses above must half word or word aligned - this can then be looked up in the .list file
-	// half word aligned: random address % 2 == 0
-	// word aligned: random address % 4 == 0
+	while (1);
+}
 
-	while (1)
-		;
+
+int divide(int x, int y) {
+	return x / y;
 }
 
