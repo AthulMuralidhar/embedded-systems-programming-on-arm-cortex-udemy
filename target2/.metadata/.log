@@ -1,4 +1,4 @@
-!SESSION 2024-08-27 17:34:12.774 -----------------------------------------------
+!SESSION 2024-08-28 18:02:52.717 -----------------------------------------------
 eclipse.buildId=Version 1.16.0
 java.version=17.0.11
 java.vendor=Eclipse Adoptium
@@ -6,71 +6,9 @@ BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
 Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 This is a continuation of log file /home/athul-muralidhar/embedded-systems-programming-on-arm-cortex-udemy/target2/.metadata/.bak_0.log
-Created Time: 2024-08-27 17:52:04.697
+Created Time: 2024-08-28 18:14:17.189
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.697
-!MESSAGE Error logged from Debug UI: 
-!STACK 0
-java.lang.NullPointerException: Input to viewer update should not be null
-	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
-	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
-	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
-	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
-	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
-	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
-	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
-	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
-	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
-	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
-	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
-	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
-	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
-	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
-	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
-	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
-	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
-	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
-	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
-	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
-	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
-	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
-	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
-	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
-	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
-	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
-	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
-	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
-
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.697
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.189
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -135,7 +73,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.698
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.189
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -197,7 +135,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.698
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.189
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -262,7 +200,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.698
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.190
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -324,7 +262,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.699
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.190
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -389,7 +327,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.699
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.190
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -451,7 +389,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.699
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.190
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -516,7 +454,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.700
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.190
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -578,7 +516,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.700
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.191
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -643,7 +581,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.701
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.191
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -705,7 +643,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.701
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.191
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -770,7 +708,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.701
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.191
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -832,7 +770,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.702
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.192
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -897,7 +835,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.702
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.192
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -959,7 +897,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.702
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.192
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1024,7 +962,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.703
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.192
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1086,7 +1024,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.703
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.193
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1151,7 +1089,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.704
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.193
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1213,7 +1151,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.704
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.193
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1278,7 +1216,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.704
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.193
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1340,7 +1278,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.705
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.194
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1405,7 +1343,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.705
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.194
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1467,7 +1405,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.705
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.194
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1532,7 +1470,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.706
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.194
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1594,7 +1532,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.706
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.194
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1659,7 +1597,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.707
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.195
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1721,7 +1659,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.707
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.195
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1786,7 +1724,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.707
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.195
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1848,7 +1786,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.708
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.195
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -1913,7 +1851,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.708
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.196
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -1975,7 +1913,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.708
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.196
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2040,7 +1978,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.709
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.196
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2102,7 +2040,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.709
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.196
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2167,7 +2105,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.710
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.196
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2229,7 +2167,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.710
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.197
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2294,7 +2232,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.711
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.197
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2356,7 +2294,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.711
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.197
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2421,7 +2359,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.712
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.197
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2483,7 +2421,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.712
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.197
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2548,7 +2486,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.713
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.198
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2610,7 +2548,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.713
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.198
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2675,7 +2613,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.714
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.198
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2737,7 +2675,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.714
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.198
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2802,7 +2740,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.714
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.199
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2864,7 +2802,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.715
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.199
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -2929,7 +2867,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.715
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.199
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -2991,7 +2929,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.716
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.199
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3056,7 +2994,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.716
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.199
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3118,7 +3056,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.716
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.200
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3183,7 +3121,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.717
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.200
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3245,7 +3183,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.717
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.200
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3310,7 +3248,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.718
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.200
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3372,7 +3310,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.718
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.201
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3437,7 +3375,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.718
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.201
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3499,7 +3437,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.719
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.201
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3564,7 +3502,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.719
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.201
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3626,7 +3564,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.719
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.201
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3691,7 +3629,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.720
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.202
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3753,7 +3691,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.720
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.202
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3818,7 +3756,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.721
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.202
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -3880,7 +3818,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.721
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.202
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -3945,7 +3883,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.721
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.202
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4007,7 +3945,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.722
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.203
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4072,7 +4010,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.722
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.203
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4134,7 +4072,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.722
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.203
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4199,7 +4137,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.723
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.203
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4261,7 +4199,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.723
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.204
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4326,7 +4264,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.724
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.204
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4388,7 +4326,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.724
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.204
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4453,7 +4391,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.724
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.204
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4515,7 +4453,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.725
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.205
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4580,7 +4518,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.725
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.205
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4642,7 +4580,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.725
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.205
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4707,7 +4645,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.726
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.205
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4769,7 +4707,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.726
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.206
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4834,7 +4772,7 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.debug.ui 4 120 2024-08-27 17:52:04.726
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.206
 !MESSAGE Error logged from Debug UI: 
 !STACK 0
 java.lang.NullPointerException: Input to viewer update should not be null
@@ -4896,7 +4834,7 @@ java.lang.NullPointerException: Input to viewer update should not be null
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.ui 4 0 2024-08-27 17:52:04.727
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.206
 !MESSAGE Unhandled event loop exception
 !STACK 0
 java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
@@ -4961,44 +4899,1090 @@ java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because th
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.cdt.dsf.ui 2 0 2024-08-27 17:52:04.857
-!MESSAGE Unable to locate file: /build/newlib-38V0JC/newlib-4.4.0.20231231/build_nano/arm-none-eabi/thumb/v7e-m+fp/hard/newlib/../../../../../../newlib/libc/reent/lseekr.c
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.207
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.cdt.dsf.ui 2 0 2024-08-27 17:52:04.950
-!MESSAGE Unable to locate file: /build/newlib-38V0JC/newlib-4.4.0.20231231/build_nano/arm-none-eabi/thumb/v7e-m+fp/hard/newlib/../../../../../../newlib/libc/reent/writer.c
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.207
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY org.eclipse.cdt.core 1 0 2024-08-27 21:19:39.379
-!MESSAGE Indexed 'fault_generation' (2 sources, 51 headers) in 0.562 sec: 1,991 declarations; 2,708 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.043%)
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.207
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
 
-!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-27 21:20:04.140
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.207
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.208
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.208
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.208
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.208
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.209
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.209
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.209
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.209
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.209
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.210
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.debug.ui 4 120 2024-08-28 18:14:17.210
+!MESSAGE Error logged from Debug UI: 
+!STACK 0
+java.lang.NullPointerException: Input to viewer update should not be null
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.<init>(ViewerUpdateMonitor.java:90)
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.<init>(ChildrenUpdate.java:45)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1190)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY org.eclipse.ui 4 0 2024-08-28 18:14:17.210
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException: Cannot invoke "Object.equals(Object)" because the return value of "org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.getViewerInput()" is null
+	at org.eclipse.debug.internal.ui.viewers.model.ChildrenUpdate.doEquals(ChildrenUpdate.java:213)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerUpdateMonitor.equals(ViewerUpdateMonitor.java:256)
+	at java.base/java.util.LinkedList.remove(LinkedList.java:369)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.coalesce(TreeModelContentProvider.java:972)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.schedule(TreeModelContentProvider.java:956)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.doUpdateElement(TreeModelContentProvider.java:1191)
+	at org.eclipse.debug.internal.ui.viewers.model.TreeModelContentProvider.updateElement(TreeModelContentProvider.java:1762)
+	at org.eclipse.jface.viewers.TreeViewer.virtualLazyUpdateWidget(TreeViewer.java:1012)
+	at org.eclipse.jface.viewers.TreeViewer.lambda$1(TreeViewer.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5854)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1529)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1555)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1538)
+	at org.eclipse.swt.widgets.Tree.checkData(Tree.java:373)
+	at org.eclipse.swt.widgets.Tree.cellDataProc(Tree.java:305)
+	at org.eclipse.swt.widgets.Display.cellDataProc(Display.java:994)
+	at org.eclipse.swt.internal.gtk.GTK.gtk_tree_store_clear(Native Method)
+	at org.eclipse.swt.widgets.Tree.removeAll(Tree.java:3002)
+	at org.eclipse.jface.viewers.TreeViewer.removeAll(TreeViewer.java:288)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1610)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1397)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:366)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1358)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1606)
+	at org.eclipse.debug.internal.ui.viewers.model.InternalTreeModelViewer.inputChanged(InternalTreeModelViewer.java:486)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:282)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1641)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.setViewerInput(VariablesView.java:466)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.viewerInputUpdateComplete(VariablesView.java:441)
+	at org.eclipse.debug.internal.ui.views.variables.VariablesView.lambda$0(VariablesView.java:297)
+	at org.eclipse.debug.internal.ui.viewers.model.provisional.ViewerInputService.lambda$1(ViewerInputService.java:54)
+	at org.eclipse.debug.internal.ui.viewers.model.ViewerInputUpdate$1.runInUIThread(ViewerInputUpdate.java:75)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:148)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:132)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:5039)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4519)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:648)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:342)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:555)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:173)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:208)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:651)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:588)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1459)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1432)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 18:56:02.785
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 18:56:40.292
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 18:59:43.423
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:00:36.960
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:01:35.250
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:02:46.736
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 64000000; div: 32
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 19:32:34.671
 !MESSAGE No .vrapperrc or _vrapperrc found.
 
-!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-27 21:29:39.920
-!MESSAGE No .vrapperrc or _vrapperrc found.
-!SESSION 2024-08-28 13:56:02.038 -----------------------------------------------
-eclipse.buildId=Version 1.16.0
-java.version=17.0.11
-java.vendor=Eclipse Adoptium
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-08-28 13:56:06.215
-!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
-
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-08-28 13:56:06.216
-!MESSAGE Log4j2 initialized with config file /home/athul-muralidhar/embedded-systems-programming-on-arm-cortex-udemy/target2/.metadata/.log4j2.xml
-
-!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 13:56:10.178
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 19:38:45.190
 !MESSAGE No .vrapperrc or _vrapperrc found.
 
-!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-08-28 13:56:11.142
-!MESSAGE Started RMI Server, listening on port 41337
-
-!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 13:56:31.816
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 19:39:01.788
 !MESSAGE No .vrapperrc or _vrapperrc found.
 
-!ENTRY org.eclipse.equinox.p2.repository 2 0 2024-08-28 13:57:35.660
-!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/wakatime/eclipse-wakatime/master/update-site/content.jar
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 19:39:07.953
+!MESSAGE No .vrapperrc or _vrapperrc found.
 
-!ENTRY org.eclipse.ui 2 2 2024-08-28 14:16:38.032
-!MESSAGE Invalid preference category path: org.eclipse.jdt.ui.preferences.JavaBasePreferencePage (bundle: eclatosa, page: autosave.preferences.AutoSavePreferencePage)
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2024-08-28 19:41:36.681
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:44:34.227
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 19:44:34.989
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:45:14.611
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:46:02.799
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:46:50.800
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 8000000; div: 4
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 19:47:32.966
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 32000000; div: 16
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-08-28 19:57:05.209
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 20:01:06.659
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 20:01:54.691
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 20:02:33.413
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 20:04:31.323
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 20:09:29.569
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-08-28 20:10:48.204
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8

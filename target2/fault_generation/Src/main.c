@@ -17,13 +17,15 @@
  */
 
 #include <stdint.h>
+#include <stdio.h>
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
 
-uint32_t *pSHCSR_ADDRESS = (uint32_t*)0xE000ED24;
+uint32_t *pSHCSR_ADDRESS = (uint32_t*)0xE000ED24;      // System Handler Control and State Register
+uint32_t *pUFSR__ADDRESS = (uint32_t*)0xE000ED2A;  // Usage Fault Status Register
 
 int main(void)
 {
@@ -47,9 +49,11 @@ int main(void)
 	// - if the address is even, we are forcing the process to run arm instructions - this is not what we want here
 	// - the Coretx m processor specifies that the t bit should always be one
 
-	some_address = (void*) ((uint32_t*)pRandom_SRAM_Location +1 );
+//	some_address = (void*) ((uint32_t*)pRandom_SRAM_Location + 0x00000001);  // <- for some reason i get a +4 value (0x20010004) and not a plus 1 value (0x20010001)
+//	some_address = (void*) 0x20010001;   // this generates a usage fault with 1 - UNDEFINSTR
+//	some_address = (void*) 0x20010000;   // this generates a usage fault with 2 - INVSTATE
 
-	some_address(); // so what this does is, invokes the function pointer and goes to 0x20010000 address
+	some_address(); // so what this does is, invokes the function pointer and goes to 0x20010001 address
 
 
 	// step 4. analyze the faults
@@ -57,6 +61,7 @@ int main(void)
     /* Loop forever */
 	for(;;);
 }
+
 
 
 // step 2. implement the fault handlers
@@ -74,7 +79,8 @@ void BusFault_Handler() {
 	while(1);
 }
 void UsageFault_Handler() {
-	printf("exception in UsageFault_Handlern");
+	printf("exception in UsageFault_Handler\n");
+	printf("USFR: %lx",(*pUFSR__ADDRESS) & 0xFFFF);
 	while(1);
 }
 
