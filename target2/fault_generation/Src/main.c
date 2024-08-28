@@ -34,12 +34,66 @@ int main(void)
 	*pSHCSR_ADDRESS |= (1 << 17); // BusFault enable bit,
 	*pSHCSR_ADDRESS |= (1 << 18); // MemManage enable bit,
 
-	// step 2. implement the fault handlers
 
 	// step 3.force the processor to execute some undefined instructions
+
+	uint32_t *pRandom_SRAM_Location = (uint32_t *) 0x20010000;
+	*pRandom_SRAM_Location = 0xFFFFFFFF; // invalid op code
+
+
+
+	void (*some_address) (void);   // just a function pointer
+	 // the + 1 is here to make the address of a function compatible to T bit specifications
+	// - if the address is even, we are forcing the process to run arm instructions - this is not what we want here
+	// - the Coretx m processor specifies that the t bit should always be one
+
+	some_address = (void*) ((uint32_t*)pRandom_SRAM_Location +1 );
+
+	some_address(); // so what this does is, invokes the function pointer and goes to 0x20010000 address
+
 
 	// step 4. analyze the faults
 
     /* Loop forever */
 	for(;;);
 }
+
+
+// step 2. implement the fault handlers
+void HardFault_Handler() {
+	printf("exception in hard fault\n");
+	while(1);
+}
+
+void MemManage_Handler() {
+	printf("exception in MemManage_Handler\n");
+	while(1);
+}
+void BusFault_Handler() {
+	printf("exception in BusFault_Handlern");
+	while(1);
+}
+void UsageFault_Handler() {
+	printf("exception in UsageFault_Handlern");
+	while(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
