@@ -29,7 +29,17 @@ int main(void)
 {
 
 	// step 1. execute the SVC instruction with an argument
-	__asm("SVC #0x08");
+	__asm("SVC #20");
+
+	// step 4. get value from the register r0 and store it in a c variable
+//	register uint32_t svc_modified __asm("r0");
+	uint32_t svc_modified;
+	__asm volatile ("MOV %0,R0":"=r"(svc_modified)::);
+
+	// use printer:
+	char buffer[50];
+	snprintf(buffer, sizeof(buffer), "svc_modified: %ld\n", svc_modified);
+	ITM_SendString(buffer);
 
     /* Loop forever */
 	for(;;);
@@ -52,7 +62,7 @@ void SVC_Handler_C(uint32_t *pBaseOfStack) {
 	snprintf(buffer, sizeof(buffer), "in the SVC handler\n");
 	ITM_SendString(buffer);
 
-	uint8_t *pReturn_address = (uint32_t*)pBaseOfStack[6];
+	uint8_t *pReturn_address = (uint8_t*)pBaseOfStack[6];
 
 	// step 2. decrement the return address by 2 to get the op code of the SVC instruction
 	pReturn_address -= 2;
@@ -62,4 +72,11 @@ void SVC_Handler_C(uint32_t *pBaseOfStack) {
 
 	snprintf(buffer, sizeof(buffer), "svc_number: %d\n", svc_number);
 	ITM_SendString(buffer);
+
+//	 step 4. modify the svc number value
+	svc_number += 4;
+	// step 5. store it back in the r0 register
+	pBaseOfStack[0] = svc_number;   // [0] position on the stack frame is r0
+	// somehow the value stored is in r3
+
 }
