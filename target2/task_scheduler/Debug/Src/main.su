@@ -1,5 +1,5 @@
-../Src/main.c:31:5:main	4	static
-../Src/main.c:37:6:task1_handler	8	static
-../Src/main.c:44:6:task2_handler	8	static
-../Src/main.c:51:6:task3_handler	8	static
-../Src/main.c:58:6:task4_handler	8	static
+../Src/main.c:48:5:main	4	static
+../Src/main.c:54:6:task1_handler	8	static
+../Src/main.c:61:6:task2_handler	8	static
+../Src/main.c:68:6:task3_handler	8	static
+../Src/main.c:75:6:task4_handler	8	static

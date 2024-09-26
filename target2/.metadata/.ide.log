@@ -795,3 +795,7 @@
 2024-09-26 17:19:47,281 [INFO] ApiDb:452 - User favorites MCUs=[STM32F407VGT6]
 2024-09-26 17:19:47,281 [INFO] ApiDb:448 - Save user favorites file /home/athul-muralidhar/.stm32cubeide/favorites.boards.txt: 1 item(s)
 2024-09-26 17:19:47,281 [INFO] ApiDb:452 - User favorites Boards=[STM32F407G-DISC1]
+2024-09-26 20:48:19,794 [INFO] WebApp:189 - Connection lost
+2024-09-26 20:59:04,679 [INFO] WebApp:186 - Connection restablished
+2024-09-26 20:59:09,769 [INFO] WebApp:189 - Connection lost
+2024-09-26 20:59:10,056 [INFO] WebApp:186 - Connection restablished

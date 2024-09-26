@@ -20,44 +20,54 @@
 #include <stdio.h>
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+// stack sizes
+#define SIZE_TASK_STACK  1024U
+#define SIZE_SCHEDULER_STACK  1024U
+// SRAM
+#define SRAM_START 0x20000000U
+#define SIZE_SRAM  ((128) * (1024))
+#define SRAM_END  ((SRAM_START) + SIZE_SRAM)
+// tasks
+#define T1_STACK_START SRAM_END
+#define T2_STACK_START ((SRAM_END) - (SIZE_TASK_STACK))
+#define T3_STACK_START ((SRAM_END) - (2 * SIZE_TASK_STACK))
+#define T4_STACK_START ((SRAM_END) - (3 * SIZE_TASK_STACK))
+// scheduler
+#define SCHEDULER_STACK_START ((SRAM_END) - (SIZE_TASK_STACK))
 
 void task1_handler();
 void task2_handler();
 void task3_handler();
 void task4_handler();
 
-int main(void)
-{
-    /* Loop forever */
-	for(;;);
+int main(void) {
+	/* Loop forever */
+	for (;;);
 }
 
 void task1_handler() {
-	while(1){
+	while (1) {
 		printf("this is task1");
 	}
 }
 
-
 void task2_handler() {
-	while(1){
+	while (1) {
 		printf("this is task2");
 	}
 }
 
-
 void task3_handler() {
-	while(1){
+	while (1) {
 		printf("this is task3");
 	}
 }
 
-
 void task4_handler() {
-	while(1){
+	while (1) {
 		printf("this is task4");
 	}
 }

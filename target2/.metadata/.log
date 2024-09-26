@@ -629,3 +629,12 @@ Command-line arguments:  -data file:/home/athul-muralidhar/embedded-systems-prog
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-09-26 18:19:25.017
 !MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-09-26 21:25:17.092
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY net.sourceforge.vrapper.eclipse 1 0 2024-09-26 21:25:17.748
+!MESSAGE No .vrapperrc or _vrapperrc found.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-09-26 21:27:08.439
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
