@@ -37,16 +37,40 @@
 #define T4_STACK_START ((SRAM_END) - (3 * SIZE_TASK_STACK))
 // scheduler
 #define SCHEDULER_STACK_START ((SRAM_END) - (SIZE_TASK_STACK))
+// desired exception frequency
+#define EXCEPTION_FREQUENCY 1000U
+// high speed internal clock - the value is given in the st32f4xxx reference manual
+#define HSI_CLOCK  16000000U
+#define SYSTICK_TIMER_CLOCK HSI_CLOCK
 
+// system tick timer
+void init_systick_timer(uint32_t freq);
+// tasks
 void task1_handler();
 void task2_handler();
 void task3_handler();
 void task4_handler();
 
+
 int main(void) {
 	/* Loop forever */
-	for (;;);
+	for (;;){};
 }
+
+void init_systick_timer(uint32_t freq){
+	// systick reload value register: 0xE000E014
+	/*
+	 * - the systick reload value register's (SVR) value is copied into the current value register CVR
+	 * - the CVRis where the counting down happens, this should not be modified
+	 * - when the CVR counts down to zero, the reload value is copied again from the SVR and the count down begins again
+	 * */
+	uint32_t *pSystick_Reload_Value_Register = (uint32_t*) 0xE000E014;
+
+
+	uint32_t count_value = SYSTICK_TIMER_CLOCK /  freq;
+
+}
+
 
 void task1_handler() {
 	while (1) {
