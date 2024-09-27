@@ -37,6 +37,7 @@
 #define T4_STACK_START ((SRAM_END) - (3 * SIZE_TASK_STACK))
 // scheduler
 #define SCHEDULER_STACK_START ((SRAM_END) - (SIZE_TASK_STACK))
+
 // desired exception frequency
 #define EXCEPTION_FREQUENCY 1000U
 // high speed internal clock - the value is given in the st32f4xxx reference manual
@@ -53,6 +54,7 @@ void task4_handler();
 
 
 int main(void) {
+	init_systick_timer(EXCEPTION_FREQUENCY);
 	/* Loop forever */
 	for (;;){};
 }
@@ -63,14 +65,35 @@ void init_systick_timer(uint32_t freq){
 	 * - the systick reload value register's (SVR) value is copied into the current value register CVR
 	 * - the CVRis where the counting down happens, this should not be modified
 	 * - when the CVR counts down to zero, the reload value is copied again from the SVR and the count down begins again
+	 * -  we should store the reload value of N-1 if we want to have an exception at N clock cycle.
+	 * - ex: if we need an interrupt in 100 clock cycles then the reload value must be 99
 	 * */
 	uint32_t *pSystick_Reload_Value_Register = (uint32_t*) 0xE000E014;
+	// systick control and status register (SCSR): 0xE000E010
+	uint32_t *pSystick_Control_And_Status_Register = (uint32_t*) 0xE000E010;
+
+	uint32_t count_value = SYSTICK_TIMER_CLOCK /  freq - 1;
 
 
-	uint32_t count_value = SYSTICK_TIMER_CLOCK /  freq;
+	// clear the value in the SVR
+	*pSystick_Reload_Value_Register &= ~(0x00FFFFFFFF);   // only 0 to 24 bits are valid in this register
+
+	// load value
+	*pSystick_Reload_Value_Register |= count_value;
+
+	// settings for the SCSR
+	*pSystick_Control_And_Status_Register  |= (1 << 1);   // Enables SysTick exception request
+	*pSystick_Control_And_Status_Register  |= (1 << 2);   // sets the clock source to processor clock
+
+	// enables the systick
+	*pSystick_Control_And_Status_Register |= (1 << 0);
+
 
 }
 
+void SysTick_Handler() {
+	printf("in systick handler");
+}
 
 void task1_handler() {
 	while (1) {
