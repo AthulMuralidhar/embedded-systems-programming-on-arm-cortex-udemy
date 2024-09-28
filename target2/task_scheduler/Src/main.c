@@ -18,7 +18,8 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include"main.h"
+#include "main.h"
+#include "printer.h"
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
 #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
@@ -50,6 +51,8 @@ uint32_t task_handlers[MAX_TASKS];
 
 uint8_t current_task = 0;  // task 1 is running
 
+char buffer[50]; // global buffer for the printer
+
 int main(void) {
 
 	enable_processor_faults();
@@ -74,7 +77,7 @@ int main(void) {
 	};
 }
 
-void SysTick_Handler() {
+__attribute__ ((naked)) void SysTick_Handler() {
 	// save the context of the current task
 	// 1. get the current PSP value
 	__asm volatile ("MRS R0, PSP");
@@ -92,11 +95,35 @@ void SysTick_Handler() {
 	 * */
 	__asm volatile ("STMDB R0!, {R4-R11}");
 	// 3.save the new value of PSP after storing the extra content
+	__asm volatile ("PUSH {LR}");  // save LR before it gets corrupted by helper functions
 	__asm volatile ("BL save_psp_value");
+
+	// retrieve the context of the next task
+	// 1. set the next task to run
+	__asm volatile ("BL update_next_task");
+	// 2. get the PSP value of new task
+	__asm volatile ("BL get_psp_value");
+	// 3. load registers r4-r11
+	/* To load multiple instructions, the instruction is LDMIA: Load Multiple registers, increment after
+	 * LDM and LDMIA is synonymous as increment after is the default behavior
+	 * */
+	__asm volatile ("LDMIA R0!, {R4-R11}");
+	// 4. update PSP and exit
+	__asm volatile ("MSR PSP, R0");
+	// retrieve LR so that we can go back to main
+	__asm volatile ("POP {LR}");
+
+	// return to main
+	__asm volatile ("BX LR");
 
 }
 
-void save_psp_value(unint32_t current_psp_value) {
+void update_next_task() {
+	current_task++;
+	current_task %= MAX_TASKS;
+}
+
+void save_psp_value(uint32_t current_psp_value) {
 	PSP_of_tasks[current_task] = current_psp_value;
 }
 
@@ -173,16 +200,16 @@ __attribute__((naked)) void init_scheduler_stack(uint32_t top_of_stack) {
 }
 
 void init_systick_timer(uint32_t freq) {
-	// systick reload value register: 0xE000E014
+	// SYSTICK reload value register: 0xE000E014
 	/*
-	 * - the systick reload value register's (SVR) value is copied into the current value register CVR
+	 * - the SYSTICK reload value register's (SVR) value is copied into the current value register CVR
 	 * - the CVRis where the counting down happens, this should not be modified
 	 * - when the CVR counts down to zero, the reload value is copied again from the SVR and the count down begins again
 	 * -  we should store the reload value of N-1 if we want to have an exception at N clock cycle.
-	 * - ex: if we need an interrupt in 100 clock cycles then the reload value must be 99
+	 * - example: if we need an interrupt in 100 clock cycles then the reload value must be 99
 	 * */
 	uint32_t *pSystick_Reload_Value_Register = (uint32_t*) 0xE000E014;
-	// systick control and status register (SCSR): 0xE000E010
+	// SYSTICK control and status register (SCSR): 0xE000E010
 	uint32_t *pSystick_Control_And_Status_Register = (uint32_t*) 0xE000E010;
 
 	uint32_t count_value = SYSTICK_TIMER_CLOCK / freq - 1;
@@ -197,32 +224,36 @@ void init_systick_timer(uint32_t freq) {
 	*pSystick_Control_And_Status_Register |= (1 << 1); // Enables SysTick exception request
 	*pSystick_Control_And_Status_Register |= (1 << 2); // sets the clock source to processor clock
 
-	// enables the systick
+	// enables the SYSTICK
 	*pSystick_Control_And_Status_Register |= (1 << 0);
 
 }
 
 void task1_handler() {
 	while (1) {
-		printf("this is task1");
+		snprintf(buffer, sizeof(buffer), "in task 1 handler\n");
+		ITM_SendString(buffer);
 	}
 }
 
 void task2_handler() {
 	while (1) {
-		printf("this is task2");
+		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
+		ITM_SendString(buffer);
 	}
 }
 
 void task3_handler() {
 	while (1) {
-		printf("this is task3");
+		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
+		ITM_SendString(buffer);;
 	}
 }
 
 void task4_handler() {
 	while (1) {
-		printf("this is task4");
+		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
+		ITM_SendString(buffer);
 	}
 }
 
