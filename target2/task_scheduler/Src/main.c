@@ -65,15 +65,39 @@ int main(void) {
 
 	init_systick_timer(EXCEPTION_FREQUENCY);
 
-
 	switch_sp_to_psp(); // we have to switch so that we can run the task in thread mode
 
 	task1_handler();
 
-
 	/* Loop forever */
 	for (;;) {
 	};
+}
+
+void SysTick_Handler() {
+	// save the context of the current task
+	// 1. get the current PSP value
+	__asm volatile ("MRS R0, PSP");
+	// 2. using the PSP store the extra content of the stack frame (from r4 to r11)
+	// 	  we need to do this as this saves the entire state of the running  task
+	/*
+	 *   The idea is to store registers r4 to r11 as r0 to r3 are already stored by the exception sequence
+	 *
+	 *   To store multiple registers we have this instruction: STMDB - Store Multiple registers, decrement before
+	 *   so we need to decrement the pointer before we store.this is because the stack grows from a higher memory
+	 *   address to a lower one. More explanation in the Cortex m generic user guide.
+	 *
+	 *   the "!" in the instruction is an optional write back suffix. so for example: R0! means that the final address accessed
+	 *   is stored in r0.
+	 * */
+	__asm volatile ("STMDB R0!, {R4-R11}");
+	// 3.save the new value of PSP after storing the extra content
+	__asm volatile ("BL save_psp_value");
+
+}
+
+void save_psp_value(unint32_t current_psp_value) {
+	PSP_of_tasks[current_task] = current_psp_value;
 }
 
 uint32_t get_psp_value() {
@@ -82,14 +106,19 @@ uint32_t get_psp_value() {
 
 __attribute__ ((naked)) void switch_sp_to_psp() {
 	// 1. Initialize PSP to task 1 stack start - as this is the first task we want to run
-	__asm volatile ("PUSH {LR}"); // save LR value for later so that we can return back to main function
+	__asm volatile ("PUSH {LR}");
+	// save LR value for later so that we can return back to main function
 	// get the value of PSP of the current task
-	__asm volatile ("BL get_psp_value");  // the uint32 return value is stored in r0 which we can use
-	__asm volatile ("MSR PSP,R0");  // Initialize PSP to point to our current task
-	__asm volatile ("POP {LR}"); // return LR to point to main function
+	__asm volatile ("BL get_psp_value");
+	// the uint32 return value is stored in r0 which we can use
+	__asm volatile ("MSR PSP,R0");
+	// Initialize PSP to point to our current task
+	__asm volatile ("POP {LR}");
+	// return LR to point to main function
 
 	// 2. change from SP to PSP using the CONTROL register
-	__asm volatile ("MOV R0,#0x02");  // setting the 2nd bit in r0
+	__asm volatile ("MOV R0,#0x02");
+	// setting the 2nd bit in r0
 	// this writes r0 to CONTROL register, thereby setting the 2nd bit to one and
 	// changing execution from MSP to PSP
 	__asm volatile ("MSR CONTROL, R0");
@@ -139,8 +168,8 @@ void init_task_stacks() {
 // naked function as MSP is a special register and it is not accessible through C code
 __attribute__((naked)) void init_scheduler_stack(uint32_t top_of_stack) {
 	__asm volatile("MSR MSP,%0"::"r" (top_of_stack) :);
-	__asm volatile("BX LR");
 	// return to the caller
+	__asm volatile("BX LR");
 }
 
 void init_systick_timer(uint32_t freq) {
@@ -171,10 +200,6 @@ void init_systick_timer(uint32_t freq) {
 	// enables the systick
 	*pSystick_Control_And_Status_Register |= (1 << 0);
 
-}
-
-void SysTick_Handler() {
-	printf("in systick handler");
 }
 
 void task1_handler() {
