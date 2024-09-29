@@ -5,51 +5,51 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .isr_vector   00000188  08000000  08000000  00001000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  1 .text         00002400  08000190  08000190  00001190  2**4
+  1 .text         00002428  08000190  08000190  00001190  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000000e4  08002590  08002590  00003590  2**2
+  2 .rodata       000000e4  080025b8  080025b8  000035b8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08002674  08002674  0000406c  2**0
+  3 .ARM.extab    00000000  0800269c  0800269c  0000406c  2**0
                   CONTENTS, READONLY
-  4 .ARM          00000008  08002674  08002674  00003674  2**2
+  4 .ARM          00000008  0800269c  0800269c  0000369c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  0800267c  0800267c  0000406c  2**0
+  5 .preinit_array 00000000  080026a4  080026a4  0000406c  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  0800267c  0800267c  0000367c  2**2
+  6 .init_array   00000004  080026a4  080026a4  000036a4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  7 .fini_array   00000004  08002680  08002680  00003680  2**2
+  7 .fini_array   00000004  080026a8  080026a8  000036a8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  8 .data         0000006c  20000000  08002684  00004000  2**2
+  8 .data         0000006c  20000000  080026ac  00004000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   9 .ccmram       00000000  10000000  10000000  0000406c  2**0
                   CONTENTS
- 10 .bss          000001b0  2000006c  2000006c  0000406c  2**2
+ 10 .bss          0000017c  2000006c  2000006c  0000406c  2**2
                   ALLOC
- 11 ._user_heap_stack 00000604  2000021c  2000021c  0000406c  2**0
+ 11 ._user_heap_stack 00000600  200001e8  200001e8  0000406c  2**0
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  0000406c  2**0
                   CONTENTS, READONLY
  13 .comment      00000026  00000000  00000000  0000409c  2**0
                   CONTENTS, READONLY
- 14 .debug_info   0001216c  00000000  00000000  000040c2  2**0
+ 14 .debug_info   000121aa  00000000  00000000  000040c2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_abbrev 0000450b  00000000  00000000  0001622e  2**0
+ 15 .debug_abbrev 00004539  00000000  00000000  0001626c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_aranges 000005d8  00000000  00000000  0001a740  2**3
+ 16 .debug_aranges 000005d8  00000000  00000000  0001a7a8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_rnglists 00000394  00000000  00000000  0001ad18  2**0
+ 17 .debug_rnglists 00000395  00000000  00000000  0001ad80  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  00002c66  00000000  00000000  0001b0ac  2**0
+ 18 .debug_macro  00002c66  00000000  00000000  0001b115  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   000067d0  00000000  00000000  0001dd12  2**0
+ 19 .debug_line   000067d9  00000000  00000000  0001dd7b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    0000ac41  00000000  00000000  000244e2  2**0
+ 20 .debug_str    0000ac41  00000000  00000000  00024554  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  00000f0c  00000000  00000000  0002f124  2**2
+ 21 .debug_frame  00000f1c  00000000  00000000  0002f198  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000012a  00000000  00000000  00030030  2**0
+ 22 .debug_line_str 0000012a  00000000  00000000  000300b4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_loclists 00002feb  00000000  00000000  0003015a  2**0
+ 23 .debug_loclists 00002feb  00000000  00000000  000301de  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -98,7 +98,7 @@ Disassembly of section .text:
  80001ea:	bd10      	pop	{r4, pc}
  80001ec:	2000006c 	.word	0x2000006c
  80001f0:	00000000 	.word	0x00000000
- 80001f4:	08002578 	.word	0x08002578
+ 80001f4:	080025a0 	.word	0x080025a0
 
 080001f8 <frame_dummy>:
  80001f8:	b508      	push	{r3, lr}
@@ -111,7 +111,7 @@ Disassembly of section .text:
  800020a:	e7cf      	b.n	80001ac <register_tm_clones>
  800020c:	00000000 	.word	0x00000000
  8000210:	20000070 	.word	0x20000070
- 8000214:	08002578 	.word	0x08002578
+ 8000214:	080025a0 	.word	0x080025a0
 
 08000218 <__libc_init_array>:
  8000218:	b570      	push	{r4, r5, r6, lr}
@@ -127,7 +127,7 @@ Disassembly of section .text:
  8000230:	4798      	blx	r3
  8000232:	42a6      	cmp	r6, r4
  8000234:	d8f9      	bhi.n	800022a <__libc_init_array+0x12>
- 8000236:	f002 f99f 	bl	8002578 <_init>
+ 8000236:	f002 f9b3 	bl	80025a0 <_init>
  800023a:	4d09      	ldr	r5, [pc, #36]	@ (8000260 <__libc_init_array+0x48>)
  800023c:	4b09      	ldr	r3, [pc, #36]	@ (8000264 <__libc_init_array+0x4c>)
  800023e:	1b5e      	subs	r6, r3, r5
@@ -141,10 +141,10 @@ Disassembly of section .text:
  8000252:	42a6      	cmp	r6, r4
  8000254:	d8f9      	bhi.n	800024a <__libc_init_array+0x32>
  8000256:	bd70      	pop	{r4, r5, r6, pc}
- 8000258:	0800267c 	.word	0x0800267c
- 800025c:	0800267c 	.word	0x0800267c
- 8000260:	0800267c 	.word	0x0800267c
- 8000264:	08002680 	.word	0x08002680
+ 8000258:	080026a4 	.word	0x080026a4
+ 800025c:	080026a4 	.word	0x080026a4
+ 8000260:	080026a4 	.word	0x080026a4
+ 8000264:	080026a8 	.word	0x080026a8
 
 08000268 <_puts_r>:
  8000268:	6a03      	ldr	r3, [r0, #32]
@@ -1300,7 +1300,7 @@ Disassembly of section .text:
  8000d0e:	4604      	mov	r4, r0
  8000d10:	4608      	mov	r0, r1
  8000d12:	602a      	str	r2, [r5, #0]
- 8000d14:	f001 fbb7 	bl	8002486 <_isatty>
+ 8000d14:	f001 fbcb 	bl	80024ae <_isatty>
  8000d18:	1c43      	adds	r3, r0, #1
  8000d1a:	d000      	beq.n	8000d1e <_isatty_r+0x16>
  8000d1c:	bd38      	pop	{r3, r4, r5, pc}
@@ -1616,9 +1616,9 @@ Disassembly of section .text:
  8001008:	f7ff fa68 	bl	80004dc <__sinit>
  800100c:	e6e0      	b.n	8000dd0 <_vfiprintf_r+0x18>
  800100e:	bf00      	nop
- 8001010:	08002638 	.word	0x08002638
- 8001014:	08002640 	.word	0x08002640
- 8001018:	08002644 	.word	0x08002644
+ 8001010:	08002660 	.word	0x08002660
+ 8001014:	08002668 	.word	0x08002668
+ 8001018:	0800266c 	.word	0x0800266c
  800101c:	00000000 	.word	0x00000000
  8001020:	08000d69 	.word	0x08000d69
 
@@ -1718,7 +1718,7 @@ Disassembly of section .text:
  80010e6:	4604      	mov	r4, r0
  80010e8:	4608      	mov	r0, r1
  80010ea:	602a      	str	r2, [r5, #0]
- 80010ec:	f001 f9e4 	bl	80024b8 <_sbrk>
+ 80010ec:	f001 f9f8 	bl	80024e0 <_sbrk>
  80010f0:	1c43      	adds	r3, r0, #1
  80010f2:	d000      	beq.n	80010f6 <_sbrk_r+0x16>
  80010f4:	bd38      	pop	{r3, r4, r5, pc}
@@ -2197,9 +2197,9 @@ Disassembly of section .text:
  800157c:	f04f 30ff 	mov.w	r0, #4294967295	@ 0xffffffff
  8001580:	e782      	b.n	8001488 <_svfiprintf_r+0x128>
  8001582:	bf00      	nop
- 8001584:	08002638 	.word	0x08002638
- 8001588:	08002640 	.word	0x08002640
- 800158c:	08002644 	.word	0x08002644
+ 8001584:	08002660 	.word	0x08002660
+ 8001588:	08002668 	.word	0x08002668
+ 800158c:	0800266c 	.word	0x0800266c
  8001590:	00000000 	.word	0x00000000
  8001594:	08001199 	.word	0x08001199
 
@@ -2519,7 +2519,7 @@ Disassembly of section .text:
  800189e:	4604      	mov	r4, r0
  80018a0:	4608      	mov	r0, r1
  80018a2:	602a      	str	r2, [r5, #0]
- 80018a4:	f000 fdd3 	bl	800244e <_close>
+ 80018a4:	f000 fde7 	bl	8002476 <_close>
  80018a8:	1c43      	adds	r3, r0, #1
  80018aa:	d000      	beq.n	80018ae <_close_r+0x16>
  80018ac:	bd38      	pop	{r3, r4, r5, pc}
@@ -2795,7 +2795,7 @@ Disassembly of section .text:
  8001ba2:	2300      	movs	r3, #0
  8001ba4:	602b      	str	r3, [r5, #0]
  8001ba6:	4664      	mov	r4, ip
- 8001ba8:	f000 fc18 	bl	80023dc <_read>
+ 8001ba8:	f000 fc2c 	bl	8002404 <_read>
  8001bac:	1c43      	adds	r3, r0, #1
  8001bae:	d000      	beq.n	8001bb2 <_read_r+0x1e>
  8001bb0:	bd38      	pop	{r3, r4, r5, pc}
@@ -3215,8 +3215,8 @@ Disassembly of section .text:
  8001fbe:	e77e      	b.n	8001ebe <_printf_i+0x176>
  8001fc0:	6860      	ldr	r0, [r4, #4]
  8001fc2:	e742      	b.n	8001e4a <_printf_i+0x102>
- 8001fc4:	0800264c 	.word	0x0800264c
- 8001fc8:	08002660 	.word	0x08002660
+ 8001fc4:	08002674 	.word	0x08002674
+ 8001fc8:	08002688 	.word	0x08002688
 
 08001fcc <_fstat_r>:
  8001fcc:	b570      	push	{r4, r5, r6, lr}
@@ -3228,7 +3228,7 @@ Disassembly of section .text:
  8001fd8:	4611      	mov	r1, r2
  8001fda:	461c      	mov	r4, r3
  8001fdc:	602e      	str	r6, [r5, #0]
- 8001fde:	f000 fa42 	bl	8002466 <_fstat>
+ 8001fde:	f000 fa56 	bl	800248e <_fstat>
  8001fe2:	1c43      	adds	r3, r0, #1
  8001fe4:	d000      	beq.n	8001fe8 <_fstat_r+0x1c>
  8001fe6:	bd70      	pop	{r4, r5, r6, pc}
@@ -3251,7 +3251,7 @@ Disassembly of section .text:
  8002006:	2300      	movs	r3, #0
  8002008:	602b      	str	r3, [r5, #0]
  800200a:	4664      	mov	r4, ip
- 800200c:	f000 fa46 	bl	800249c <_lseek>
+ 800200c:	f000 fa5a 	bl	80024c4 <_lseek>
  8002010:	1c43      	adds	r3, r0, #1
  8002012:	d000      	beq.n	8002016 <_lseek_r+0x1e>
  8002014:	bd38      	pop	{r3, r4, r5, pc}
@@ -3273,7 +3273,7 @@ Disassembly of section .text:
  8002032:	2300      	movs	r3, #0
  8002034:	602b      	str	r3, [r5, #0]
  8002036:	4664      	mov	r4, ip
- 8002038:	f000 f9ed 	bl	8002416 <_write>
+ 8002038:	f000 fa01 	bl	800243e <_write>
  800203c:	1c43      	adds	r3, r0, #1
  800203e:	d000      	beq.n	8002042 <_write_r+0x1e>
  8002040:	bd38      	pop	{r3, r4, r5, pc}
@@ -3375,10 +3375,10 @@ void ITM_SendString(const char *str) {
 	...
 
 080020d8 <main>:
+uint32_t task_handlers[MAX_TASKS];
 
 uint8_t current_task = 0;  // task 1 is running
 
-char buffer[50]; // global buffer for the printer
 
 int main(void) {
  80020d8:	b580      	push	{r7, lr}
@@ -3387,9 +3387,10 @@ int main(void) {
 	enable_processor_faults();
  80020dc:	f000 f888 	bl	80021f0 <enable_processor_faults>
 
+
 	init_scheduler_stack(SCHEDULER_STACK_START);
  80020e0:	480d      	ldr	r0, [pc, #52]	@ (8002118 <main+0x40>)
- 80020e2:	f000 f8e1 	bl	80022a8 <init_scheduler_stack>
+ 80020e2:	f000 f8ed 	bl	80022c0 <init_scheduler_stack>
 
 	task_handlers[0] = (uint32_t) task1_handler;
  80020e6:	4a0d      	ldr	r2, [pc, #52]	@ (800211c <main+0x44>)
@@ -3413,13 +3414,13 @@ int main(void) {
 
 	init_systick_timer(EXCEPTION_FREQUENCY);
  8002102:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
- 8002106:	f000 f8d5 	bl	80022b4 <init_systick_timer>
+ 8002106:	f000 f8e1 	bl	80022cc <init_systick_timer>
 
 	switch_sp_to_psp(); // we have to switch so that we can run the task in thread mode
  800210a:	f000 f863 	bl	80021d4 <switch_sp_to_psp>
 
 	task1_handler();
- 800210e:	f000 f907 	bl	8002320 <task1_handler>
+ 800210e:	f000 f913 	bl	8002338 <task1_handler>
 
 	/* Loop forever */
 	for (;;) {
@@ -3427,30 +3428,32 @@ int main(void) {
  8002114:	e7fd      	b.n	8002112 <main+0x3a>
  8002116:	bf00      	nop
  8002118:	2001fc00 	.word	0x2001fc00
- 800211c:	08002321 	.word	0x08002321
+ 800211c:	08002339 	.word	0x08002339
  8002120:	200001d0 	.word	0x200001d0
- 8002124:	08002341 	.word	0x08002341
- 8002128:	08002361 	.word	0x08002361
- 800212c:	08002381 	.word	0x08002381
+ 8002124:	0800235d 	.word	0x0800235d
+ 8002128:	08002381 	.word	0x08002381
+ 800212c:	080023a5 	.word	0x080023a5
 
 08002130 <SysTick_Handler>:
+	};
 }
 
 __attribute__ ((naked)) void SysTick_Handler() {
+	__asm volatile ("PUSH {LR}");  // save LR before it gets corrupted by helper functions
+ 8002130:	b500      	push	{lr}
+
 	// save the context of the current task
 	// 1. get the current PSP value
 	__asm volatile ("MRS R0, PSP");
- 8002130:	f3ef 8009 	mrs	r0, PSP
+ 8002132:	f3ef 8009 	mrs	r0, PSP
 	 *   address to a lower one. More explanation in the Cortex m generic user guide.
 	 *
 	 *   the "!" in the instruction is an optional write back suffix. so for example: R0! means that the final address accessed
 	 *   is stored in r0.
 	 * */
 	__asm volatile ("STMDB R0!, {R4-R11}");
- 8002134:	e920 0ff0 	stmdb	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
+ 8002136:	e920 0ff0 	stmdb	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
 	// 3.save the new value of PSP after storing the extra content
-	__asm volatile ("PUSH {LR}");  // save LR before it gets corrupted by helper functions
- 8002138:	b500      	push	{lr}
 	__asm volatile ("BL save_psp_value");
  800213a:	f000 f823 	bl	8002184 <save_psp_value>
 
@@ -3465,7 +3468,7 @@ __attribute__ ((naked)) void SysTick_Handler() {
 	/* To load multiple instructions, the instruction is LDMIA: Load Multiple registers, increment after
 	 * LDM and LDMIA is synonymous as increment after is the default behavior
 	 * */
-	__asm volatile ("LDMIA R0!, {R4-R11}");
+	__asm volatile ("LDM R0!, {R4-R11}");
  8002146:	e8b0 0ff0 	ldmia.w	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
 	// 4. update PSP and exit
 	__asm volatile ("MSR PSP, R0");
@@ -3636,9 +3639,9 @@ void init_task_stacks() {
 	for (int i = 0; i < MAX_TASKS; i++) {
  8002236:	2300      	movs	r3, #0
  8002238:	60bb      	str	r3, [r7, #8]
- 800223a:	e029      	b.n	8002290 <init_task_stacks+0x60>
+ 800223a:	e032      	b.n	80022a2 <init_task_stacks+0x72>
 		pPSP = (uint32_t*) PSP_of_tasks[i]; // gets the current task's stack start
- 800223c:	4a19      	ldr	r2, [pc, #100]	@ (80022a4 <init_task_stacks+0x74>)
+ 800223c:	4a1e      	ldr	r2, [pc, #120]	@ (80022b8 <init_task_stacks+0x88>)
  800223e:	68bb      	ldr	r3, [r7, #8]
  8002240:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
  8002244:	60fb      	str	r3, [r7, #12]
@@ -3658,645 +3661,677 @@ void init_task_stacks() {
  8002254:	68fb      	ldr	r3, [r7, #12]
  8002256:	3b04      	subs	r3, #4
  8002258:	60fb      	str	r3, [r7, #12]
+		// the task handlers have to be maintained at 1 as the least significant bit is the
+		// T bit which has to be set to 1 always
+		*pPSP = task_handlers[i];
+ 800225a:	4a18      	ldr	r2, [pc, #96]	@ (80022bc <init_task_stacks+0x8c>)
+ 800225c:	68bb      	ldr	r3, [r7, #8]
+ 800225e:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
+ 8002262:	68fb      	ldr	r3, [r7, #12]
+ 8002264:	601a      	str	r2, [r3, #0]
+
+		// LR
+		pPSP--;
+ 8002266:	68fb      	ldr	r3, [r7, #12]
+ 8002268:	3b04      	subs	r3, #4
+ 800226a:	60fb      	str	r3, [r7, #12]
 		*pPSP = RETURN_TO_THREAD_MODE;
- 800225a:	68fb      	ldr	r3, [r7, #12]
- 800225c:	f06f 0202 	mvn.w	r2, #2
- 8002260:	601a      	str	r2, [r3, #0]
+ 800226c:	68fb      	ldr	r3, [r7, #12]
+ 800226e:	f06f 0202 	mvn.w	r2, #2
+ 8002272:	601a      	str	r2, [r3, #0]
 
 		// for GPIO registers r0 to r12
 		for (int j = 0; j < 13; j++) {
- 8002262:	2300      	movs	r3, #0
- 8002264:	607b      	str	r3, [r7, #4]
- 8002266:	e008      	b.n	800227a <init_task_stacks+0x4a>
+ 8002274:	2300      	movs	r3, #0
+ 8002276:	607b      	str	r3, [r7, #4]
+ 8002278:	e008      	b.n	800228c <init_task_stacks+0x5c>
 			pPSP--;
- 8002268:	68fb      	ldr	r3, [r7, #12]
- 800226a:	3b04      	subs	r3, #4
- 800226c:	60fb      	str	r3, [r7, #12]
+ 800227a:	68fb      	ldr	r3, [r7, #12]
+ 800227c:	3b04      	subs	r3, #4
+ 800227e:	60fb      	str	r3, [r7, #12]
 			*pPSP = 0;
- 800226e:	68fb      	ldr	r3, [r7, #12]
- 8002270:	2200      	movs	r2, #0
- 8002272:	601a      	str	r2, [r3, #0]
+ 8002280:	68fb      	ldr	r3, [r7, #12]
+ 8002282:	2200      	movs	r2, #0
+ 8002284:	601a      	str	r2, [r3, #0]
 		for (int j = 0; j < 13; j++) {
- 8002274:	687b      	ldr	r3, [r7, #4]
- 8002276:	3301      	adds	r3, #1
- 8002278:	607b      	str	r3, [r7, #4]
- 800227a:	687b      	ldr	r3, [r7, #4]
- 800227c:	2b0c      	cmp	r3, #12
- 800227e:	ddf3      	ble.n	8002268 <init_task_stacks+0x38>
+ 8002286:	687b      	ldr	r3, [r7, #4]
+ 8002288:	3301      	adds	r3, #1
+ 800228a:	607b      	str	r3, [r7, #4]
+ 800228c:	687b      	ldr	r3, [r7, #4]
+ 800228e:	2b0c      	cmp	r3, #12
+ 8002290:	ddf3      	ble.n	800227a <init_task_stacks+0x4a>
 		}
 
 		// NOTE: we need to save the value back to the PSP_of_tasks
 		// only then does the processor pop all the states for us
 		PSP_of_tasks[i] = (uint32_t) pPSP;
- 8002280:	68fa      	ldr	r2, [r7, #12]
- 8002282:	4908      	ldr	r1, [pc, #32]	@ (80022a4 <init_task_stacks+0x74>)
- 8002284:	68bb      	ldr	r3, [r7, #8]
- 8002286:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
+ 8002292:	68fa      	ldr	r2, [r7, #12]
+ 8002294:	4908      	ldr	r1, [pc, #32]	@ (80022b8 <init_task_stacks+0x88>)
+ 8002296:	68bb      	ldr	r3, [r7, #8]
+ 8002298:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 	for (int i = 0; i < MAX_TASKS; i++) {
- 800228a:	68bb      	ldr	r3, [r7, #8]
- 800228c:	3301      	adds	r3, #1
- 800228e:	60bb      	str	r3, [r7, #8]
- 8002290:	68bb      	ldr	r3, [r7, #8]
- 8002292:	2b03      	cmp	r3, #3
- 8002294:	ddd2      	ble.n	800223c <init_task_stacks+0xc>
+ 800229c:	68bb      	ldr	r3, [r7, #8]
+ 800229e:	3301      	adds	r3, #1
+ 80022a0:	60bb      	str	r3, [r7, #8]
+ 80022a2:	68bb      	ldr	r3, [r7, #8]
+ 80022a4:	2b03      	cmp	r3, #3
+ 80022a6:	ddc9      	ble.n	800223c <init_task_stacks+0xc>
 
 	}
 
 }
- 8002296:	bf00      	nop
- 8002298:	bf00      	nop
- 800229a:	3714      	adds	r7, #20
- 800229c:	46bd      	mov	sp, r7
- 800229e:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80022a2:	4770      	bx	lr
- 80022a4:	2000005c 	.word	0x2000005c
+ 80022a8:	bf00      	nop
+ 80022aa:	bf00      	nop
+ 80022ac:	3714      	adds	r7, #20
+ 80022ae:	46bd      	mov	sp, r7
+ 80022b0:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80022b4:	4770      	bx	lr
+ 80022b6:	bf00      	nop
+ 80022b8:	2000005c 	.word	0x2000005c
+ 80022bc:	200001d0 	.word	0x200001d0
 
-080022a8 <init_scheduler_stack>:
+080022c0 <init_scheduler_stack>:
 
 // naked function as MSP is a special register and it is not accessible through C code
 __attribute__((naked)) void init_scheduler_stack(uint32_t top_of_stack) {
- 80022a8:	4603      	mov	r3, r0
+ 80022c0:	4603      	mov	r3, r0
 	__asm volatile("MSR MSP,%0"::"r" (top_of_stack) :);
- 80022aa:	f383 8808 	msr	MSP, r3
+ 80022c2:	f383 8808 	msr	MSP, r3
 	// return to the caller
 	__asm volatile("BX LR");
- 80022ae:	4770      	bx	lr
+ 80022c6:	4770      	bx	lr
 }
- 80022b0:	bf00      	nop
+ 80022c8:	bf00      	nop
 	...
 
-080022b4 <init_systick_timer>:
+080022cc <init_systick_timer>:
 
 void init_systick_timer(uint32_t freq) {
- 80022b4:	b480      	push	{r7}
- 80022b6:	b087      	sub	sp, #28
- 80022b8:	af00      	add	r7, sp, #0
- 80022ba:	6078      	str	r0, [r7, #4]
+ 80022cc:	b480      	push	{r7}
+ 80022ce:	b087      	sub	sp, #28
+ 80022d0:	af00      	add	r7, sp, #0
+ 80022d2:	6078      	str	r0, [r7, #4]
 	 * - the CVRis where the counting down happens, this should not be modified
 	 * - when the CVR counts down to zero, the reload value is copied again from the SVR and the count down begins again
 	 * -  we should store the reload value of N-1 if we want to have an exception at N clock cycle.
 	 * - example: if we need an interrupt in 100 clock cycles then the reload value must be 99
 	 * */
 	uint32_t *pSystick_Reload_Value_Register = (uint32_t*) 0xE000E014;
- 80022bc:	4b15      	ldr	r3, [pc, #84]	@ (8002314 <init_systick_timer+0x60>)
- 80022be:	617b      	str	r3, [r7, #20]
+ 80022d4:	4b15      	ldr	r3, [pc, #84]	@ (800232c <init_systick_timer+0x60>)
+ 80022d6:	617b      	str	r3, [r7, #20]
 	// SYSTICK control and status register (SCSR): 0xE000E010
 	uint32_t *pSystick_Control_And_Status_Register = (uint32_t*) 0xE000E010;
- 80022c0:	4b15      	ldr	r3, [pc, #84]	@ (8002318 <init_systick_timer+0x64>)
- 80022c2:	613b      	str	r3, [r7, #16]
+ 80022d8:	4b15      	ldr	r3, [pc, #84]	@ (8002330 <init_systick_timer+0x64>)
+ 80022da:	613b      	str	r3, [r7, #16]
 
 	uint32_t count_value = SYSTICK_TIMER_CLOCK / freq - 1;
- 80022c4:	4a15      	ldr	r2, [pc, #84]	@ (800231c <init_systick_timer+0x68>)
- 80022c6:	687b      	ldr	r3, [r7, #4]
- 80022c8:	fbb2 f3f3 	udiv	r3, r2, r3
- 80022cc:	3b01      	subs	r3, #1
- 80022ce:	60fb      	str	r3, [r7, #12]
+ 80022dc:	4a15      	ldr	r2, [pc, #84]	@ (8002334 <init_systick_timer+0x68>)
+ 80022de:	687b      	ldr	r3, [r7, #4]
+ 80022e0:	fbb2 f3f3 	udiv	r3, r2, r3
+ 80022e4:	3b01      	subs	r3, #1
+ 80022e6:	60fb      	str	r3, [r7, #12]
 
 	// clear the value in the SVR
 	*pSystick_Reload_Value_Register &= ~(0x00FFFFFFFF); // only 0 to 24 bits are valid in this register
- 80022d0:	697b      	ldr	r3, [r7, #20]
- 80022d2:	2200      	movs	r2, #0
- 80022d4:	601a      	str	r2, [r3, #0]
+ 80022e8:	697b      	ldr	r3, [r7, #20]
+ 80022ea:	2200      	movs	r2, #0
+ 80022ec:	601a      	str	r2, [r3, #0]
 
 	// load value
 	*pSystick_Reload_Value_Register |= count_value;
- 80022d6:	697b      	ldr	r3, [r7, #20]
- 80022d8:	681a      	ldr	r2, [r3, #0]
- 80022da:	68fb      	ldr	r3, [r7, #12]
- 80022dc:	431a      	orrs	r2, r3
- 80022de:	697b      	ldr	r3, [r7, #20]
- 80022e0:	601a      	str	r2, [r3, #0]
+ 80022ee:	697b      	ldr	r3, [r7, #20]
+ 80022f0:	681a      	ldr	r2, [r3, #0]
+ 80022f2:	68fb      	ldr	r3, [r7, #12]
+ 80022f4:	431a      	orrs	r2, r3
+ 80022f6:	697b      	ldr	r3, [r7, #20]
+ 80022f8:	601a      	str	r2, [r3, #0]
 
 	// settings for the SCSR
 	*pSystick_Control_And_Status_Register |= (1 << 1); // Enables SysTick exception request
- 80022e2:	693b      	ldr	r3, [r7, #16]
- 80022e4:	681b      	ldr	r3, [r3, #0]
- 80022e6:	f043 0202 	orr.w	r2, r3, #2
- 80022ea:	693b      	ldr	r3, [r7, #16]
- 80022ec:	601a      	str	r2, [r3, #0]
+ 80022fa:	693b      	ldr	r3, [r7, #16]
+ 80022fc:	681b      	ldr	r3, [r3, #0]
+ 80022fe:	f043 0202 	orr.w	r2, r3, #2
+ 8002302:	693b      	ldr	r3, [r7, #16]
+ 8002304:	601a      	str	r2, [r3, #0]
 	*pSystick_Control_And_Status_Register |= (1 << 2); // sets the clock source to processor clock
- 80022ee:	693b      	ldr	r3, [r7, #16]
- 80022f0:	681b      	ldr	r3, [r3, #0]
- 80022f2:	f043 0204 	orr.w	r2, r3, #4
- 80022f6:	693b      	ldr	r3, [r7, #16]
- 80022f8:	601a      	str	r2, [r3, #0]
+ 8002306:	693b      	ldr	r3, [r7, #16]
+ 8002308:	681b      	ldr	r3, [r3, #0]
+ 800230a:	f043 0204 	orr.w	r2, r3, #4
+ 800230e:	693b      	ldr	r3, [r7, #16]
+ 8002310:	601a      	str	r2, [r3, #0]
 
 	// enables the SYSTICK
 	*pSystick_Control_And_Status_Register |= (1 << 0);
- 80022fa:	693b      	ldr	r3, [r7, #16]
- 80022fc:	681b      	ldr	r3, [r3, #0]
- 80022fe:	f043 0201 	orr.w	r2, r3, #1
- 8002302:	693b      	ldr	r3, [r7, #16]
- 8002304:	601a      	str	r2, [r3, #0]
+ 8002312:	693b      	ldr	r3, [r7, #16]
+ 8002314:	681b      	ldr	r3, [r3, #0]
+ 8002316:	f043 0201 	orr.w	r2, r3, #1
+ 800231a:	693b      	ldr	r3, [r7, #16]
+ 800231c:	601a      	str	r2, [r3, #0]
 
 }
- 8002306:	bf00      	nop
- 8002308:	371c      	adds	r7, #28
- 800230a:	46bd      	mov	sp, r7
- 800230c:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8002310:	4770      	bx	lr
- 8002312:	bf00      	nop
- 8002314:	e000e014 	.word	0xe000e014
- 8002318:	e000e010 	.word	0xe000e010
- 800231c:	00f42400 	.word	0x00f42400
+ 800231e:	bf00      	nop
+ 8002320:	371c      	adds	r7, #28
+ 8002322:	46bd      	mov	sp, r7
+ 8002324:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8002328:	4770      	bx	lr
+ 800232a:	bf00      	nop
+ 800232c:	e000e014 	.word	0xe000e014
+ 8002330:	e000e010 	.word	0xe000e010
+ 8002334:	00f42400 	.word	0x00f42400
 
-08002320 <task1_handler>:
+08002338 <task1_handler>:
 
 void task1_handler() {
- 8002320:	b580      	push	{r7, lr}
- 8002322:	af00      	add	r7, sp, #0
+ 8002338:	b580      	push	{r7, lr}
+ 800233a:	b08e      	sub	sp, #56	@ 0x38
+ 800233c:	af00      	add	r7, sp, #0
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 1 handler\n");
- 8002324:	4a04      	ldr	r2, [pc, #16]	@ (8002338 <task1_handler+0x18>)
- 8002326:	2132      	movs	r1, #50	@ 0x32
- 8002328:	4804      	ldr	r0, [pc, #16]	@ (800233c <task1_handler+0x1c>)
- 800232a:	f7fe fc81 	bl	8000c30 <sniprintf>
+ 800233e:	1d3b      	adds	r3, r7, #4
+ 8002340:	4a05      	ldr	r2, [pc, #20]	@ (8002358 <task1_handler+0x20>)
+ 8002342:	2132      	movs	r1, #50	@ 0x32
+ 8002344:	4618      	mov	r0, r3
+ 8002346:	f7fe fc73 	bl	8000c30 <sniprintf>
 		ITM_SendString(buffer);
- 800232e:	4803      	ldr	r0, [pc, #12]	@ (800233c <task1_handler+0x1c>)
- 8002330:	f7ff febc 	bl	80020ac <ITM_SendString>
+ 800234a:	1d3b      	adds	r3, r7, #4
+ 800234c:	4618      	mov	r0, r3
+ 800234e:	f7ff fead 	bl	80020ac <ITM_SendString>
 		snprintf(buffer, sizeof(buffer), "in task 1 handler\n");
- 8002334:	bf00      	nop
- 8002336:	e7f5      	b.n	8002324 <task1_handler+0x4>
- 8002338:	08002590 	.word	0x08002590
- 800233c:	200001e4 	.word	0x200001e4
+ 8002352:	bf00      	nop
+ 8002354:	e7f3      	b.n	800233e <task1_handler+0x6>
+ 8002356:	bf00      	nop
+ 8002358:	080025b8 	.word	0x080025b8
 
-08002340 <task2_handler>:
+0800235c <task2_handler>:
 	}
 }
 
 void task2_handler() {
- 8002340:	b580      	push	{r7, lr}
- 8002342:	af00      	add	r7, sp, #0
+ 800235c:	b580      	push	{r7, lr}
+ 800235e:	b08e      	sub	sp, #56	@ 0x38
+ 8002360:	af00      	add	r7, sp, #0
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
- 8002344:	4a04      	ldr	r2, [pc, #16]	@ (8002358 <task2_handler+0x18>)
- 8002346:	2132      	movs	r1, #50	@ 0x32
- 8002348:	4804      	ldr	r0, [pc, #16]	@ (800235c <task2_handler+0x1c>)
- 800234a:	f7fe fc71 	bl	8000c30 <sniprintf>
+ 8002362:	1d3b      	adds	r3, r7, #4
+ 8002364:	4a05      	ldr	r2, [pc, #20]	@ (800237c <task2_handler+0x20>)
+ 8002366:	2132      	movs	r1, #50	@ 0x32
+ 8002368:	4618      	mov	r0, r3
+ 800236a:	f7fe fc61 	bl	8000c30 <sniprintf>
 		ITM_SendString(buffer);
- 800234e:	4803      	ldr	r0, [pc, #12]	@ (800235c <task2_handler+0x1c>)
- 8002350:	f7ff feac 	bl	80020ac <ITM_SendString>
+ 800236e:	1d3b      	adds	r3, r7, #4
+ 8002370:	4618      	mov	r0, r3
+ 8002372:	f7ff fe9b 	bl	80020ac <ITM_SendString>
 		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
- 8002354:	bf00      	nop
- 8002356:	e7f5      	b.n	8002344 <task2_handler+0x4>
- 8002358:	080025a4 	.word	0x080025a4
- 800235c:	200001e4 	.word	0x200001e4
+ 8002376:	bf00      	nop
+ 8002378:	e7f3      	b.n	8002362 <task2_handler+0x6>
+ 800237a:	bf00      	nop
+ 800237c:	080025cc 	.word	0x080025cc
 
-08002360 <task3_handler>:
+08002380 <task3_handler>:
 	}
 }
 
 void task3_handler() {
- 8002360:	b580      	push	{r7, lr}
- 8002362:	af00      	add	r7, sp, #0
+ 8002380:	b580      	push	{r7, lr}
+ 8002382:	b08e      	sub	sp, #56	@ 0x38
+ 8002384:	af00      	add	r7, sp, #0
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
- 8002364:	4a04      	ldr	r2, [pc, #16]	@ (8002378 <task3_handler+0x18>)
- 8002366:	2132      	movs	r1, #50	@ 0x32
- 8002368:	4804      	ldr	r0, [pc, #16]	@ (800237c <task3_handler+0x1c>)
- 800236a:	f7fe fc61 	bl	8000c30 <sniprintf>
+ 8002386:	1d3b      	adds	r3, r7, #4
+ 8002388:	4a05      	ldr	r2, [pc, #20]	@ (80023a0 <task3_handler+0x20>)
+ 800238a:	2132      	movs	r1, #50	@ 0x32
+ 800238c:	4618      	mov	r0, r3
+ 800238e:	f7fe fc4f 	bl	8000c30 <sniprintf>
 		ITM_SendString(buffer);;
- 800236e:	4803      	ldr	r0, [pc, #12]	@ (800237c <task3_handler+0x1c>)
- 8002370:	f7ff fe9c 	bl	80020ac <ITM_SendString>
+ 8002392:	1d3b      	adds	r3, r7, #4
+ 8002394:	4618      	mov	r0, r3
+ 8002396:	f7ff fe89 	bl	80020ac <ITM_SendString>
 		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
- 8002374:	bf00      	nop
- 8002376:	e7f5      	b.n	8002364 <task3_handler+0x4>
- 8002378:	080025b8 	.word	0x080025b8
- 800237c:	200001e4 	.word	0x200001e4
+ 800239a:	bf00      	nop
+ 800239c:	e7f3      	b.n	8002386 <task3_handler+0x6>
+ 800239e:	bf00      	nop
+ 80023a0:	080025e0 	.word	0x080025e0
 
-08002380 <task4_handler>:
+080023a4 <task4_handler>:
 	}
 }
 
 void task4_handler() {
- 8002380:	b580      	push	{r7, lr}
- 8002382:	af00      	add	r7, sp, #0
+ 80023a4:	b580      	push	{r7, lr}
+ 80023a6:	b08e      	sub	sp, #56	@ 0x38
+ 80023a8:	af00      	add	r7, sp, #0
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
- 8002384:	4a04      	ldr	r2, [pc, #16]	@ (8002398 <task4_handler+0x18>)
- 8002386:	2132      	movs	r1, #50	@ 0x32
- 8002388:	4804      	ldr	r0, [pc, #16]	@ (800239c <task4_handler+0x1c>)
- 800238a:	f7fe fc51 	bl	8000c30 <sniprintf>
+ 80023aa:	1d3b      	adds	r3, r7, #4
+ 80023ac:	4a05      	ldr	r2, [pc, #20]	@ (80023c4 <task4_handler+0x20>)
+ 80023ae:	2132      	movs	r1, #50	@ 0x32
+ 80023b0:	4618      	mov	r0, r3
+ 80023b2:	f7fe fc3d 	bl	8000c30 <sniprintf>
 		ITM_SendString(buffer);
- 800238e:	4803      	ldr	r0, [pc, #12]	@ (800239c <task4_handler+0x1c>)
- 8002390:	f7ff fe8c 	bl	80020ac <ITM_SendString>
+ 80023b6:	1d3b      	adds	r3, r7, #4
+ 80023b8:	4618      	mov	r0, r3
+ 80023ba:	f7ff fe77 	bl	80020ac <ITM_SendString>
 		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
- 8002394:	bf00      	nop
- 8002396:	e7f5      	b.n	8002384 <task4_handler+0x4>
- 8002398:	080025cc 	.word	0x080025cc
- 800239c:	200001e4 	.word	0x200001e4
+ 80023be:	bf00      	nop
+ 80023c0:	e7f3      	b.n	80023aa <task4_handler+0x6>
+ 80023c2:	bf00      	nop
+ 80023c4:	080025f4 	.word	0x080025f4
 
-080023a0 <HardFault_Handler>:
+080023c8 <HardFault_Handler>:
 	}
 }
 
 void HardFault_Handler() {
- 80023a0:	b580      	push	{r7, lr}
- 80023a2:	af00      	add	r7, sp, #0
+ 80023c8:	b580      	push	{r7, lr}
+ 80023ca:	af00      	add	r7, sp, #0
 	printf("exception in hard fault\n");
- 80023a4:	4802      	ldr	r0, [pc, #8]	@ (80023b0 <HardFault_Handler+0x10>)
- 80023a6:	f7fd ffa7 	bl	80002f8 <puts>
+ 80023cc:	4802      	ldr	r0, [pc, #8]	@ (80023d8 <HardFault_Handler+0x10>)
+ 80023ce:	f7fd ff93 	bl	80002f8 <puts>
 	while (1) {
- 80023aa:	bf00      	nop
- 80023ac:	e7fd      	b.n	80023aa <HardFault_Handler+0xa>
- 80023ae:	bf00      	nop
- 80023b0:	080025e0 	.word	0x080025e0
+ 80023d2:	bf00      	nop
+ 80023d4:	e7fd      	b.n	80023d2 <HardFault_Handler+0xa>
+ 80023d6:	bf00      	nop
+ 80023d8:	08002608 	.word	0x08002608
 
-080023b4 <MemManage_Handler>:
+080023dc <MemManage_Handler>:
 	};
 }
 
 void MemManage_Handler() {
- 80023b4:	b580      	push	{r7, lr}
- 80023b6:	af00      	add	r7, sp, #0
+ 80023dc:	b580      	push	{r7, lr}
+ 80023de:	af00      	add	r7, sp, #0
 	printf("exception in MemManage_Handler\n");
- 80023b8:	4802      	ldr	r0, [pc, #8]	@ (80023c4 <MemManage_Handler+0x10>)
- 80023ba:	f7fd ff9d 	bl	80002f8 <puts>
+ 80023e0:	4802      	ldr	r0, [pc, #8]	@ (80023ec <MemManage_Handler+0x10>)
+ 80023e2:	f7fd ff89 	bl	80002f8 <puts>
 	while (1) {
- 80023be:	bf00      	nop
- 80023c0:	e7fd      	b.n	80023be <MemManage_Handler+0xa>
- 80023c2:	bf00      	nop
- 80023c4:	080025f8 	.word	0x080025f8
+ 80023e6:	bf00      	nop
+ 80023e8:	e7fd      	b.n	80023e6 <MemManage_Handler+0xa>
+ 80023ea:	bf00      	nop
+ 80023ec:	08002620 	.word	0x08002620
 
-080023c8 <BusFault_Handler>:
+080023f0 <BusFault_Handler>:
 	};
 }
 void BusFault_Handler() {
- 80023c8:	b580      	push	{r7, lr}
- 80023ca:	af00      	add	r7, sp, #0
+ 80023f0:	b580      	push	{r7, lr}
+ 80023f2:	af00      	add	r7, sp, #0
 	printf("exception in BusFault_Handlern");
- 80023cc:	4802      	ldr	r0, [pc, #8]	@ (80023d8 <BusFault_Handler+0x10>)
- 80023ce:	f7fe fc87 	bl	8000ce0 <iprintf>
+ 80023f4:	4802      	ldr	r0, [pc, #8]	@ (8002400 <BusFault_Handler+0x10>)
+ 80023f6:	f7fe fc73 	bl	8000ce0 <iprintf>
 	while (1) {
- 80023d2:	bf00      	nop
- 80023d4:	e7fd      	b.n	80023d2 <BusFault_Handler+0xa>
- 80023d6:	bf00      	nop
- 80023d8:	08002618 	.word	0x08002618
+ 80023fa:	bf00      	nop
+ 80023fc:	e7fd      	b.n	80023fa <BusFault_Handler+0xa>
+ 80023fe:	bf00      	nop
+ 8002400:	08002640 	.word	0x08002640
 
-080023dc <_read>:
+08002404 <_read>:
 	_kill(status, -1);
 	while (1) {
 	} /* Make sure we hang here */
 }
 
 __attribute__((weak)) int _read(int file, char *ptr, int len) {
- 80023dc:	b580      	push	{r7, lr}
- 80023de:	b086      	sub	sp, #24
- 80023e0:	af00      	add	r7, sp, #0
- 80023e2:	60f8      	str	r0, [r7, #12]
- 80023e4:	60b9      	str	r1, [r7, #8]
- 80023e6:	607a      	str	r2, [r7, #4]
+ 8002404:	b580      	push	{r7, lr}
+ 8002406:	b086      	sub	sp, #24
+ 8002408:	af00      	add	r7, sp, #0
+ 800240a:	60f8      	str	r0, [r7, #12]
+ 800240c:	60b9      	str	r1, [r7, #8]
+ 800240e:	607a      	str	r2, [r7, #4]
 	(void) file;
 	int DataIdx;
 
 	for (DataIdx = 0; DataIdx < len; DataIdx++) {
- 80023e8:	2300      	movs	r3, #0
- 80023ea:	617b      	str	r3, [r7, #20]
- 80023ec:	e00a      	b.n	8002404 <_read+0x28>
+ 8002410:	2300      	movs	r3, #0
+ 8002412:	617b      	str	r3, [r7, #20]
+ 8002414:	e00a      	b.n	800242c <_read+0x28>
 		*ptr++ = __io_getchar();
- 80023ee:	f3af 8000 	nop.w
- 80023f2:	4601      	mov	r1, r0
- 80023f4:	68bb      	ldr	r3, [r7, #8]
- 80023f6:	1c5a      	adds	r2, r3, #1
- 80023f8:	60ba      	str	r2, [r7, #8]
- 80023fa:	b2ca      	uxtb	r2, r1
- 80023fc:	701a      	strb	r2, [r3, #0]
+ 8002416:	f3af 8000 	nop.w
+ 800241a:	4601      	mov	r1, r0
+ 800241c:	68bb      	ldr	r3, [r7, #8]
+ 800241e:	1c5a      	adds	r2, r3, #1
+ 8002420:	60ba      	str	r2, [r7, #8]
+ 8002422:	b2ca      	uxtb	r2, r1
+ 8002424:	701a      	strb	r2, [r3, #0]
 	for (DataIdx = 0; DataIdx < len; DataIdx++) {
- 80023fe:	697b      	ldr	r3, [r7, #20]
- 8002400:	3301      	adds	r3, #1
- 8002402:	617b      	str	r3, [r7, #20]
- 8002404:	697a      	ldr	r2, [r7, #20]
- 8002406:	687b      	ldr	r3, [r7, #4]
- 8002408:	429a      	cmp	r2, r3
- 800240a:	dbf0      	blt.n	80023ee <_read+0x12>
+ 8002426:	697b      	ldr	r3, [r7, #20]
+ 8002428:	3301      	adds	r3, #1
+ 800242a:	617b      	str	r3, [r7, #20]
+ 800242c:	697a      	ldr	r2, [r7, #20]
+ 800242e:	687b      	ldr	r3, [r7, #4]
+ 8002430:	429a      	cmp	r2, r3
+ 8002432:	dbf0      	blt.n	8002416 <_read+0x12>
 	}
 
 	return len;
- 800240c:	687b      	ldr	r3, [r7, #4]
+ 8002434:	687b      	ldr	r3, [r7, #4]
 }
- 800240e:	4618      	mov	r0, r3
- 8002410:	3718      	adds	r7, #24
- 8002412:	46bd      	mov	sp, r7
- 8002414:	bd80      	pop	{r7, pc}
+ 8002436:	4618      	mov	r0, r3
+ 8002438:	3718      	adds	r7, #24
+ 800243a:	46bd      	mov	sp, r7
+ 800243c:	bd80      	pop	{r7, pc}
 
-08002416 <_write>:
+0800243e <_write>:
 
 __attribute__((weak)) int _write(int file, char *ptr, int len) {
- 8002416:	b580      	push	{r7, lr}
- 8002418:	b086      	sub	sp, #24
- 800241a:	af00      	add	r7, sp, #0
- 800241c:	60f8      	str	r0, [r7, #12]
- 800241e:	60b9      	str	r1, [r7, #8]
- 8002420:	607a      	str	r2, [r7, #4]
+ 800243e:	b580      	push	{r7, lr}
+ 8002440:	b086      	sub	sp, #24
+ 8002442:	af00      	add	r7, sp, #0
+ 8002444:	60f8      	str	r0, [r7, #12]
+ 8002446:	60b9      	str	r1, [r7, #8]
+ 8002448:	607a      	str	r2, [r7, #4]
 	(void) file;
 	int DataIdx;
 
 	for (DataIdx = 0; DataIdx < len; DataIdx++) {
- 8002422:	2300      	movs	r3, #0
- 8002424:	617b      	str	r3, [r7, #20]
- 8002426:	e009      	b.n	800243c <_write+0x26>
+ 800244a:	2300      	movs	r3, #0
+ 800244c:	617b      	str	r3, [r7, #20]
+ 800244e:	e009      	b.n	8002464 <_write+0x26>
 		__io_putchar(*ptr++);
- 8002428:	68bb      	ldr	r3, [r7, #8]
- 800242a:	1c5a      	adds	r2, r3, #1
- 800242c:	60ba      	str	r2, [r7, #8]
- 800242e:	781b      	ldrb	r3, [r3, #0]
- 8002430:	4618      	mov	r0, r3
- 8002432:	f3af 8000 	nop.w
+ 8002450:	68bb      	ldr	r3, [r7, #8]
+ 8002452:	1c5a      	adds	r2, r3, #1
+ 8002454:	60ba      	str	r2, [r7, #8]
+ 8002456:	781b      	ldrb	r3, [r3, #0]
+ 8002458:	4618      	mov	r0, r3
+ 800245a:	f3af 8000 	nop.w
 	for (DataIdx = 0; DataIdx < len; DataIdx++) {
- 8002436:	697b      	ldr	r3, [r7, #20]
- 8002438:	3301      	adds	r3, #1
- 800243a:	617b      	str	r3, [r7, #20]
- 800243c:	697a      	ldr	r2, [r7, #20]
- 800243e:	687b      	ldr	r3, [r7, #4]
- 8002440:	429a      	cmp	r2, r3
- 8002442:	dbf1      	blt.n	8002428 <_write+0x12>
+ 800245e:	697b      	ldr	r3, [r7, #20]
+ 8002460:	3301      	adds	r3, #1
+ 8002462:	617b      	str	r3, [r7, #20]
+ 8002464:	697a      	ldr	r2, [r7, #20]
+ 8002466:	687b      	ldr	r3, [r7, #4]
+ 8002468:	429a      	cmp	r2, r3
+ 800246a:	dbf1      	blt.n	8002450 <_write+0x12>
 	}
 	return len;
- 8002444:	687b      	ldr	r3, [r7, #4]
+ 800246c:	687b      	ldr	r3, [r7, #4]
 }
- 8002446:	4618      	mov	r0, r3
- 8002448:	3718      	adds	r7, #24
- 800244a:	46bd      	mov	sp, r7
- 800244c:	bd80      	pop	{r7, pc}
+ 800246e:	4618      	mov	r0, r3
+ 8002470:	3718      	adds	r7, #24
+ 8002472:	46bd      	mov	sp, r7
+ 8002474:	bd80      	pop	{r7, pc}
 
-0800244e <_close>:
+08002476 <_close>:
 
 int _close(int file) {
- 800244e:	b480      	push	{r7}
- 8002450:	b083      	sub	sp, #12
- 8002452:	af00      	add	r7, sp, #0
- 8002454:	6078      	str	r0, [r7, #4]
+ 8002476:	b480      	push	{r7}
+ 8002478:	b083      	sub	sp, #12
+ 800247a:	af00      	add	r7, sp, #0
+ 800247c:	6078      	str	r0, [r7, #4]
 	(void) file;
 	return -1;
- 8002456:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+ 800247e:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
 }
- 800245a:	4618      	mov	r0, r3
- 800245c:	370c      	adds	r7, #12
- 800245e:	46bd      	mov	sp, r7
- 8002460:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8002464:	4770      	bx	lr
+ 8002482:	4618      	mov	r0, r3
+ 8002484:	370c      	adds	r7, #12
+ 8002486:	46bd      	mov	sp, r7
+ 8002488:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800248c:	4770      	bx	lr
 
-08002466 <_fstat>:
+0800248e <_fstat>:
 
 int _fstat(int file, struct stat *st) {
- 8002466:	b480      	push	{r7}
- 8002468:	b083      	sub	sp, #12
- 800246a:	af00      	add	r7, sp, #0
- 800246c:	6078      	str	r0, [r7, #4]
- 800246e:	6039      	str	r1, [r7, #0]
+ 800248e:	b480      	push	{r7}
+ 8002490:	b083      	sub	sp, #12
+ 8002492:	af00      	add	r7, sp, #0
+ 8002494:	6078      	str	r0, [r7, #4]
+ 8002496:	6039      	str	r1, [r7, #0]
 	(void) file;
 	st->st_mode = S_IFCHR;
- 8002470:	683b      	ldr	r3, [r7, #0]
- 8002472:	f44f 5200 	mov.w	r2, #8192	@ 0x2000
- 8002476:	605a      	str	r2, [r3, #4]
+ 8002498:	683b      	ldr	r3, [r7, #0]
+ 800249a:	f44f 5200 	mov.w	r2, #8192	@ 0x2000
+ 800249e:	605a      	str	r2, [r3, #4]
 	return 0;
- 8002478:	2300      	movs	r3, #0
+ 80024a0:	2300      	movs	r3, #0
 }
- 800247a:	4618      	mov	r0, r3
- 800247c:	370c      	adds	r7, #12
- 800247e:	46bd      	mov	sp, r7
- 8002480:	f85d 7b04 	ldr.w	r7, [sp], #4
- 8002484:	4770      	bx	lr
+ 80024a2:	4618      	mov	r0, r3
+ 80024a4:	370c      	adds	r7, #12
+ 80024a6:	46bd      	mov	sp, r7
+ 80024a8:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80024ac:	4770      	bx	lr
 
-08002486 <_isatty>:
+080024ae <_isatty>:
 
 int _isatty(int file) {
- 8002486:	b480      	push	{r7}
- 8002488:	b083      	sub	sp, #12
- 800248a:	af00      	add	r7, sp, #0
- 800248c:	6078      	str	r0, [r7, #4]
+ 80024ae:	b480      	push	{r7}
+ 80024b0:	b083      	sub	sp, #12
+ 80024b2:	af00      	add	r7, sp, #0
+ 80024b4:	6078      	str	r0, [r7, #4]
 	(void) file;
 	return 1;
- 800248e:	2301      	movs	r3, #1
+ 80024b6:	2301      	movs	r3, #1
 }
- 8002490:	4618      	mov	r0, r3
- 8002492:	370c      	adds	r7, #12
- 8002494:	46bd      	mov	sp, r7
- 8002496:	f85d 7b04 	ldr.w	r7, [sp], #4
- 800249a:	4770      	bx	lr
+ 80024b8:	4618      	mov	r0, r3
+ 80024ba:	370c      	adds	r7, #12
+ 80024bc:	46bd      	mov	sp, r7
+ 80024be:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80024c2:	4770      	bx	lr
 
-0800249c <_lseek>:
+080024c4 <_lseek>:
 
 int _lseek(int file, int ptr, int dir) {
- 800249c:	b480      	push	{r7}
- 800249e:	b085      	sub	sp, #20
- 80024a0:	af00      	add	r7, sp, #0
- 80024a2:	60f8      	str	r0, [r7, #12]
- 80024a4:	60b9      	str	r1, [r7, #8]
- 80024a6:	607a      	str	r2, [r7, #4]
+ 80024c4:	b480      	push	{r7}
+ 80024c6:	b085      	sub	sp, #20
+ 80024c8:	af00      	add	r7, sp, #0
+ 80024ca:	60f8      	str	r0, [r7, #12]
+ 80024cc:	60b9      	str	r1, [r7, #8]
+ 80024ce:	607a      	str	r2, [r7, #4]
 	(void) file;
 	(void) ptr;
 	(void) dir;
 	return 0;
- 80024a8:	2300      	movs	r3, #0
+ 80024d0:	2300      	movs	r3, #0
 }
- 80024aa:	4618      	mov	r0, r3
- 80024ac:	3714      	adds	r7, #20
- 80024ae:	46bd      	mov	sp, r7
- 80024b0:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80024b4:	4770      	bx	lr
+ 80024d2:	4618      	mov	r0, r3
+ 80024d4:	3714      	adds	r7, #20
+ 80024d6:	46bd      	mov	sp, r7
+ 80024d8:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80024dc:	4770      	bx	lr
 	...
 
-080024b8 <_sbrk>:
+080024e0 <_sbrk>:
  * reserved size, please increase the '_Min_Stack_Size'.
  *
  * @param incr Memory size
  * @return Pointer to allocated memory
  */
 void* _sbrk(ptrdiff_t incr) {
- 80024b8:	b580      	push	{r7, lr}
- 80024ba:	b086      	sub	sp, #24
- 80024bc:	af00      	add	r7, sp, #0
- 80024be:	6078      	str	r0, [r7, #4]
+ 80024e0:	b580      	push	{r7, lr}
+ 80024e2:	b086      	sub	sp, #24
+ 80024e4:	af00      	add	r7, sp, #0
+ 80024e6:	6078      	str	r0, [r7, #4]
 	extern uint8_t _end; /* Symbol defined in the linker script */
 	extern uint8_t _estack; /* Symbol defined in the linker script */
 	extern uint32_t _Min_Stack_Size; /* Symbol defined in the linker script */
 	const uint32_t stack_limit = (uint32_t) &_estack
- 80024c0:	4a14      	ldr	r2, [pc, #80]	@ (8002514 <_sbrk+0x5c>)
+ 80024e8:	4a14      	ldr	r2, [pc, #80]	@ (800253c <_sbrk+0x5c>)
 			- (uint32_t) &_Min_Stack_Size;
- 80024c2:	4b15      	ldr	r3, [pc, #84]	@ (8002518 <_sbrk+0x60>)
+ 80024ea:	4b15      	ldr	r3, [pc, #84]	@ (8002540 <_sbrk+0x60>)
 	const uint32_t stack_limit = (uint32_t) &_estack
- 80024c4:	1ad3      	subs	r3, r2, r3
- 80024c6:	617b      	str	r3, [r7, #20]
+ 80024ec:	1ad3      	subs	r3, r2, r3
+ 80024ee:	617b      	str	r3, [r7, #20]
 	const uint8_t *max_heap = (uint8_t*) stack_limit;
- 80024c8:	697b      	ldr	r3, [r7, #20]
- 80024ca:	613b      	str	r3, [r7, #16]
+ 80024f0:	697b      	ldr	r3, [r7, #20]
+ 80024f2:	613b      	str	r3, [r7, #16]
 	uint8_t *prev_heap_end;
 
 	/* Initialize heap end at first call */
 	if (NULL == __sbrk_heap_end) {
- 80024cc:	4b13      	ldr	r3, [pc, #76]	@ (800251c <_sbrk+0x64>)
- 80024ce:	681b      	ldr	r3, [r3, #0]
- 80024d0:	2b00      	cmp	r3, #0
- 80024d2:	d102      	bne.n	80024da <_sbrk+0x22>
+ 80024f4:	4b13      	ldr	r3, [pc, #76]	@ (8002544 <_sbrk+0x64>)
+ 80024f6:	681b      	ldr	r3, [r3, #0]
+ 80024f8:	2b00      	cmp	r3, #0
+ 80024fa:	d102      	bne.n	8002502 <_sbrk+0x22>
 		__sbrk_heap_end = &_end;
- 80024d4:	4b11      	ldr	r3, [pc, #68]	@ (800251c <_sbrk+0x64>)
- 80024d6:	4a12      	ldr	r2, [pc, #72]	@ (8002520 <_sbrk+0x68>)
- 80024d8:	601a      	str	r2, [r3, #0]
+ 80024fc:	4b11      	ldr	r3, [pc, #68]	@ (8002544 <_sbrk+0x64>)
+ 80024fe:	4a12      	ldr	r2, [pc, #72]	@ (8002548 <_sbrk+0x68>)
+ 8002500:	601a      	str	r2, [r3, #0]
 	}
 
 	/* Protect heap from growing into the reserved MSP stack */
 	if (__sbrk_heap_end + incr > max_heap) {
- 80024da:	4b10      	ldr	r3, [pc, #64]	@ (800251c <_sbrk+0x64>)
- 80024dc:	681a      	ldr	r2, [r3, #0]
- 80024de:	687b      	ldr	r3, [r7, #4]
- 80024e0:	4413      	add	r3, r2
- 80024e2:	693a      	ldr	r2, [r7, #16]
- 80024e4:	429a      	cmp	r2, r3
- 80024e6:	d207      	bcs.n	80024f8 <_sbrk+0x40>
+ 8002502:	4b10      	ldr	r3, [pc, #64]	@ (8002544 <_sbrk+0x64>)
+ 8002504:	681a      	ldr	r2, [r3, #0]
+ 8002506:	687b      	ldr	r3, [r7, #4]
+ 8002508:	4413      	add	r3, r2
+ 800250a:	693a      	ldr	r2, [r7, #16]
+ 800250c:	429a      	cmp	r2, r3
+ 800250e:	d207      	bcs.n	8002520 <_sbrk+0x40>
 		errno = ENOMEM;
- 80024e8:	f7fe f946 	bl	8000778 <__errno>
- 80024ec:	4603      	mov	r3, r0
- 80024ee:	220c      	movs	r2, #12
- 80024f0:	601a      	str	r2, [r3, #0]
+ 8002510:	f7fe f932 	bl	8000778 <__errno>
+ 8002514:	4603      	mov	r3, r0
+ 8002516:	220c      	movs	r2, #12
+ 8002518:	601a      	str	r2, [r3, #0]
 		return (void*) -1;
- 80024f2:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
- 80024f6:	e009      	b.n	800250c <_sbrk+0x54>
+ 800251a:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+ 800251e:	e009      	b.n	8002534 <_sbrk+0x54>
 	}
 
 	prev_heap_end = __sbrk_heap_end;
- 80024f8:	4b08      	ldr	r3, [pc, #32]	@ (800251c <_sbrk+0x64>)
- 80024fa:	681b      	ldr	r3, [r3, #0]
- 80024fc:	60fb      	str	r3, [r7, #12]
+ 8002520:	4b08      	ldr	r3, [pc, #32]	@ (8002544 <_sbrk+0x64>)
+ 8002522:	681b      	ldr	r3, [r3, #0]
+ 8002524:	60fb      	str	r3, [r7, #12]
 	__sbrk_heap_end += incr;
- 80024fe:	4b07      	ldr	r3, [pc, #28]	@ (800251c <_sbrk+0x64>)
- 8002500:	681a      	ldr	r2, [r3, #0]
- 8002502:	687b      	ldr	r3, [r7, #4]
- 8002504:	4413      	add	r3, r2
- 8002506:	4a05      	ldr	r2, [pc, #20]	@ (800251c <_sbrk+0x64>)
- 8002508:	6013      	str	r3, [r2, #0]
+ 8002526:	4b07      	ldr	r3, [pc, #28]	@ (8002544 <_sbrk+0x64>)
+ 8002528:	681a      	ldr	r2, [r3, #0]
+ 800252a:	687b      	ldr	r3, [r7, #4]
+ 800252c:	4413      	add	r3, r2
+ 800252e:	4a05      	ldr	r2, [pc, #20]	@ (8002544 <_sbrk+0x64>)
+ 8002530:	6013      	str	r3, [r2, #0]
 
 	return (void*) prev_heap_end;
- 800250a:	68fb      	ldr	r3, [r7, #12]
+ 8002532:	68fb      	ldr	r3, [r7, #12]
 }
- 800250c:	4618      	mov	r0, r3
- 800250e:	3718      	adds	r7, #24
- 8002510:	46bd      	mov	sp, r7
- 8002512:	bd80      	pop	{r7, pc}
- 8002514:	20020000 	.word	0x20020000
- 8002518:	00000400 	.word	0x00000400
- 800251c:	20000218 	.word	0x20000218
- 8002520:	20000220 	.word	0x20000220
+ 8002534:	4618      	mov	r0, r3
+ 8002536:	3718      	adds	r7, #24
+ 8002538:	46bd      	mov	sp, r7
+ 800253a:	bd80      	pop	{r7, pc}
+ 800253c:	20020000 	.word	0x20020000
+ 8002540:	00000400 	.word	0x00000400
+ 8002544:	200001e4 	.word	0x200001e4
+ 8002548:	200001e8 	.word	0x200001e8
 
-08002524 <Reset_Handler>:
+0800254c <Reset_Handler>:
 
   .section .text.Reset_Handler
   .weak Reset_Handler
   .type Reset_Handler, %function
 Reset_Handler:
   ldr   r0, =_estack
- 8002524:	480d      	ldr	r0, [pc, #52]	@ (800255c <LoopForever+0x2>)
+ 800254c:	480d      	ldr	r0, [pc, #52]	@ (8002584 <LoopForever+0x2>)
   mov   sp, r0          /* set stack pointer */
- 8002526:	4685      	mov	sp, r0
+ 800254e:	4685      	mov	sp, r0
 /* Call the clock system initialization function.*/
   bl  SystemInit
- 8002528:	f3af 8000 	nop.w
+ 8002550:	f3af 8000 	nop.w
 
 /* Copy the data segment initializers from flash to SRAM */
   ldr r0, =_sdata
- 800252c:	480c      	ldr	r0, [pc, #48]	@ (8002560 <LoopForever+0x6>)
+ 8002554:	480c      	ldr	r0, [pc, #48]	@ (8002588 <LoopForever+0x6>)
   ldr r1, =_edata
- 800252e:	490d      	ldr	r1, [pc, #52]	@ (8002564 <LoopForever+0xa>)
+ 8002556:	490d      	ldr	r1, [pc, #52]	@ (800258c <LoopForever+0xa>)
   ldr r2, =_sidata
- 8002530:	4a0d      	ldr	r2, [pc, #52]	@ (8002568 <LoopForever+0xe>)
+ 8002558:	4a0d      	ldr	r2, [pc, #52]	@ (8002590 <LoopForever+0xe>)
   movs r3, #0
- 8002532:	2300      	movs	r3, #0
+ 800255a:	2300      	movs	r3, #0
   b LoopCopyDataInit
- 8002534:	e002      	b.n	800253c <LoopCopyDataInit>
+ 800255c:	e002      	b.n	8002564 <LoopCopyDataInit>
 
-08002536 <CopyDataInit>:
+0800255e <CopyDataInit>:
 
 CopyDataInit:
   ldr r4, [r2, r3]
- 8002536:	58d4      	ldr	r4, [r2, r3]
+ 800255e:	58d4      	ldr	r4, [r2, r3]
   str r4, [r0, r3]
- 8002538:	50c4      	str	r4, [r0, r3]
+ 8002560:	50c4      	str	r4, [r0, r3]
   adds r3, r3, #4
- 800253a:	3304      	adds	r3, #4
+ 8002562:	3304      	adds	r3, #4
 
-0800253c <LoopCopyDataInit>:
+08002564 <LoopCopyDataInit>:
 
 LoopCopyDataInit:
   adds r4, r0, r3
- 800253c:	18c4      	adds	r4, r0, r3
+ 8002564:	18c4      	adds	r4, r0, r3
   cmp r4, r1
- 800253e:	428c      	cmp	r4, r1
+ 8002566:	428c      	cmp	r4, r1
   bcc CopyDataInit
- 8002540:	d3f9      	bcc.n	8002536 <CopyDataInit>
+ 8002568:	d3f9      	bcc.n	800255e <CopyDataInit>
 
 /* Zero fill the bss segment. */
   ldr r2, =_sbss
- 8002542:	4a0a      	ldr	r2, [pc, #40]	@ (800256c <LoopForever+0x12>)
+ 800256a:	4a0a      	ldr	r2, [pc, #40]	@ (8002594 <LoopForever+0x12>)
   ldr r4, =_ebss
- 8002544:	4c0a      	ldr	r4, [pc, #40]	@ (8002570 <LoopForever+0x16>)
+ 800256c:	4c0a      	ldr	r4, [pc, #40]	@ (8002598 <LoopForever+0x16>)
   movs r3, #0
- 8002546:	2300      	movs	r3, #0
+ 800256e:	2300      	movs	r3, #0
   b LoopFillZerobss
- 8002548:	e001      	b.n	800254e <LoopFillZerobss>
+ 8002570:	e001      	b.n	8002576 <LoopFillZerobss>
 
-0800254a <FillZerobss>:
+08002572 <FillZerobss>:
 
 FillZerobss:
   str  r3, [r2]
- 800254a:	6013      	str	r3, [r2, #0]
+ 8002572:	6013      	str	r3, [r2, #0]
   adds r2, r2, #4
- 800254c:	3204      	adds	r2, #4
+ 8002574:	3204      	adds	r2, #4
 
-0800254e <LoopFillZerobss>:
+08002576 <LoopFillZerobss>:
 
 LoopFillZerobss:
   cmp r2, r4
- 800254e:	42a2      	cmp	r2, r4
+ 8002576:	42a2      	cmp	r2, r4
   bcc FillZerobss
- 8002550:	d3fb      	bcc.n	800254a <FillZerobss>
+ 8002578:	d3fb      	bcc.n	8002572 <FillZerobss>
 
 /* Call static constructors */
   bl __libc_init_array
- 8002552:	f7fd fe61 	bl	8000218 <__libc_init_array>
+ 800257a:	f7fd fe4d 	bl	8000218 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
- 8002556:	f7ff fdbf 	bl	80020d8 <main>
+ 800257e:	f7ff fdab 	bl	80020d8 <main>
 
-0800255a <LoopForever>:
+08002582 <LoopForever>:
 
 LoopForever:
   b LoopForever
- 800255a:	e7fe      	b.n	800255a <LoopForever>
+ 8002582:	e7fe      	b.n	8002582 <LoopForever>
   ldr   r0, =_estack
- 800255c:	20020000 	.word	0x20020000
+ 8002584:	20020000 	.word	0x20020000
   ldr r0, =_sdata
- 8002560:	20000000 	.word	0x20000000
+ 8002588:	20000000 	.word	0x20000000
   ldr r1, =_edata
- 8002564:	2000006c 	.word	0x2000006c
+ 800258c:	2000006c 	.word	0x2000006c
   ldr r2, =_sidata
- 8002568:	08002684 	.word	0x08002684
+ 8002590:	080026ac 	.word	0x080026ac
   ldr r2, =_sbss
- 800256c:	2000006c 	.word	0x2000006c
+ 8002594:	2000006c 	.word	0x2000006c
   ldr r4, =_ebss
- 8002570:	2000021c 	.word	0x2000021c
+ 8002598:	200001e8 	.word	0x200001e8
 
-08002574 <ADC_IRQHandler>:
+0800259c <ADC_IRQHandler>:
  * @retval : None
 */
   .section .text.Default_Handler,"ax",%progbits
 Default_Handler:
 Infinite_Loop:
   b Infinite_Loop
- 8002574:	e7fe      	b.n	8002574 <ADC_IRQHandler>
+ 800259c:	e7fe      	b.n	800259c <ADC_IRQHandler>
 	...
 
-08002578 <_init>:
- 8002578:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 800257a:	bf00      	nop
- 800257c:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 800257e:	bc08      	pop	{r3}
- 8002580:	469e      	mov	lr, r3
- 8002582:	4770      	bx	lr
+080025a0 <_init>:
+ 80025a0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80025a2:	bf00      	nop
+ 80025a4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 80025a6:	bc08      	pop	{r3}
+ 80025a8:	469e      	mov	lr, r3
+ 80025aa:	4770      	bx	lr
 
-08002584 <_fini>:
- 8002584:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 8002586:	bf00      	nop
- 8002588:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 800258a:	bc08      	pop	{r3}
- 800258c:	469e      	mov	lr, r3
- 800258e:	4770      	bx	lr
+080025ac <_fini>:
+ 80025ac:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80025ae:	bf00      	nop
+ 80025b0:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 80025b2:	bc08      	pop	{r3}
+ 80025b4:	469e      	mov	lr, r3
+ 80025b6:	4770      	bx	lr

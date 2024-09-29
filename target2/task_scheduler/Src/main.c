@@ -51,11 +51,11 @@ uint32_t task_handlers[MAX_TASKS];
 
 uint8_t current_task = 0;  // task 1 is running
 
-char buffer[50]; // global buffer for the printer
 
 int main(void) {
 
 	enable_processor_faults();
+
 
 	init_scheduler_stack(SCHEDULER_STACK_START);
 
@@ -78,6 +78,8 @@ int main(void) {
 }
 
 __attribute__ ((naked)) void SysTick_Handler() {
+	__asm volatile ("PUSH {LR}");  // save LR before it gets corrupted by helper functions
+
 	// save the context of the current task
 	// 1. get the current PSP value
 	__asm volatile ("MRS R0, PSP");
@@ -95,7 +97,6 @@ __attribute__ ((naked)) void SysTick_Handler() {
 	 * */
 	__asm volatile ("STMDB R0!, {R4-R11}");
 	// 3.save the new value of PSP after storing the extra content
-	__asm volatile ("PUSH {LR}");  // save LR before it gets corrupted by helper functions
 	__asm volatile ("BL save_psp_value");
 
 	// retrieve the context of the next task
@@ -107,7 +108,15 @@ __attribute__ ((naked)) void SysTick_Handler() {
 	/* To load multiple instructions, the instruction is LDMIA: Load Multiple registers, increment after
 	 * LDM and LDMIA is synonymous as increment after is the default behavior
 	 * */
-	__asm volatile ("LDMIA R0!, {R4-R11}");
+
+
+	// FIXME
+	// the below instruction generates a hard fault with unaligned access
+	// need to investigate
+	__asm volatile ("LDM R0!, {R4-R11}");
+
+
+
 	// 4. update PSP and exit
 	__asm volatile ("MSR PSP, R0");
 	// retrieve LR so that we can go back to main
@@ -176,6 +185,12 @@ void init_task_stacks() {
 
 		// PC
 		pPSP--;
+		// the task handlers have to be maintained at 1 as the least significant bit is the
+		// T bit which has to be set to 1 always
+		*pPSP = task_handlers[i];
+
+		// LR
+		pPSP--;
 		*pPSP = RETURN_TO_THREAD_MODE;
 
 		// for GPIO registers r0 to r12
@@ -230,6 +245,7 @@ void init_systick_timer(uint32_t freq) {
 }
 
 void task1_handler() {
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 1 handler\n");
 		ITM_SendString(buffer);
@@ -237,6 +253,7 @@ void task1_handler() {
 }
 
 void task2_handler() {
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
 		ITM_SendString(buffer);
@@ -244,6 +261,7 @@ void task2_handler() {
 }
 
 void task3_handler() {
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
 		ITM_SendString(buffer);;
@@ -251,6 +269,7 @@ void task3_handler() {
 }
 
 void task4_handler() {
+char buffer[50]; // global buffer for the printer
 	while (1) {
 		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
 		ITM_SendString(buffer);
