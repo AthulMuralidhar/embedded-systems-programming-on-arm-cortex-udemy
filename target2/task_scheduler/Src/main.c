@@ -113,7 +113,15 @@ __attribute__ ((naked)) void SysTick_Handler() {
 	// FIXME
 	// the below instruction generates a hard fault with unaligned access
 	// need to investigate
-	__asm volatile ("LDM R0!, {R4-R11}");
+	__asm volatile ("LDR R4, [R0], #4");
+	__asm volatile ("LDR R5, [R0], #4");
+	__asm volatile ("LDR R6, [R0], #4");
+	__asm volatile ("LDR R7, [R0], #4");
+	__asm volatile ("LDR R8, [R0], #4");
+	__asm volatile ("LDR R9, [R0], #4");
+	__asm volatile ("LDR R10, [R0], #4");
+	__asm volatile ("LDR R11, [R0], #4");
+//	__asm volatile ("LDM R0!, {R4-R11}");
 
 
 
@@ -255,24 +263,24 @@ char buffer[50]; // global buffer for the printer
 void task2_handler() {
 char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
-		ITM_SendString(buffer);
+//		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
+//		ITM_SendString(buffer);
 	}
 }
 
 void task3_handler() {
 char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
-		ITM_SendString(buffer);;
+//		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
+//		ITM_SendString(buffer);;
 	}
 }
 
 void task4_handler() {
 char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
-		ITM_SendString(buffer);
+//		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
+//		ITM_SendString(buffer);
 	}
 }
 
