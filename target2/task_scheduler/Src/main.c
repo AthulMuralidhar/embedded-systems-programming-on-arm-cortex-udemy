@@ -16,6 +16,12 @@
  ******************************************************************************
  */
 
+/*
+ * udemy course content link: https://github.com/niekiran/CortexMxProgramming/tree/master/Source_code/015_task_scheduler
+ * */
+
+
+
 #include <stdint.h>
 #include <stdio.h>
 #include "main.h"

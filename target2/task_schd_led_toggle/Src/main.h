@@ -38,9 +38,4 @@
 // to Thread mode using the main stack pointer (MSP
 #define RETURN_TO_THREAD_MODE 0xFFFFFFFD
 
-
-#define TASK_RUNNING_STATE 0x00
-#define TASK_BLOCKED_STATE 0xFF
-
-
 #endif /* MAIN_H_ */

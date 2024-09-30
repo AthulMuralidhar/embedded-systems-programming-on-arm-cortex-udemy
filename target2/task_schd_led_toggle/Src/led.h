@@ -8,9 +8,6 @@
 #ifndef LED_H_
 #define LED_H_
 
-#ifndef LED_H_
-#define LED_H_
-
 #define LED_GREEN  12
 #define LED_ORANGE 13
 #define LED_RED    14
