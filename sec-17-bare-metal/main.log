@@ -33,8 +33,8 @@ Disassembly of section .text:
   3a:	46bd      	mov	sp, r7
   3c:	bc80      	pop	{r7}
   3e:	4770      	bx	lr
-  40:	e0000e80 	.word	0xe0000e80
-  44:	e0000e00 	.word	0xe0000e00
+  40:	e0000e80 	and	r0, r0, r0, lsl #29
+  44:	e0000e00 	and	r0, r0, r0, lsl #28
 
 00000048 <ITM_SendString>:
   48:	b580      	push	{r7, lr}
@@ -83,7 +83,7 @@ Disassembly of section .text:
   a8:	f7ff fffe 	bl	2d4 <task1_handler>
   ac:	e7fe      	b.n	ac <main+0x3a>
   ae:	bf00      	nop
-  b0:	2001fc00 	.word	0x2001fc00
+  b0:	2001fc00 	andcs	pc, r1, r0, lsl #24
 	...
 
 000000c8 <SysTick_Handler>:
@@ -125,7 +125,7 @@ Disassembly of section .text:
  12a:	46bd      	mov	sp, r7
  12c:	bc80      	pop	{r7}
  12e:	4770      	bx	lr
- 130:	00000000 	.word	0x00000000
+ 130:	00000000 	andeq	r0, r0, r0
 
 00000134 <save_psp_value>:
  134:	b480      	push	{r7}
@@ -196,7 +196,7 @@ Disassembly of section .text:
  1ca:	bc80      	pop	{r7}
  1cc:	4770      	bx	lr
  1ce:	bf00      	nop
- 1d0:	e000ed24 	.word	0xe000ed24
+ 1d0:	e000ed24 	and	lr, r0, r4, lsr #26
 
 000001d4 <init_task_stacks>:
  1d4:	b480      	push	{r7}
@@ -312,9 +312,9 @@ Disassembly of section .text:
  2c2:	bc80      	pop	{r7}
  2c4:	4770      	bx	lr
  2c6:	bf00      	nop
- 2c8:	e000e014 	.word	0xe000e014
- 2cc:	e000e010 	.word	0xe000e010
- 2d0:	00f42400 	.word	0x00f42400
+ 2c8:	e000e014 	and	lr, r0, r4, lsl r0
+ 2cc:	e000e010 	and	lr, r0, r0, lsl r0
+ 2d0:	00f42400 	rscseq	r2, r4, r0, lsl #8
 
 000002d4 <task1_handler>:
  2d4:	b580      	push	{r7, lr}
@@ -329,7 +329,7 @@ Disassembly of section .text:
  2e8:	4618      	mov	r0, r3
  2ea:	f7ff fffe 	bl	48 <ITM_SendString>
  2ee:	e7f4      	b.n	2da <task1_handler+0x6>
- 2f0:	00000000 	.word	0x00000000
+ 2f0:	00000000 	andeq	r0, r0, r0
 
 000002f4 <task2_handler>:
  2f4:	b580      	push	{r7, lr}
@@ -344,7 +344,7 @@ Disassembly of section .text:
  308:	4618      	mov	r0, r3
  30a:	f7ff fffe 	bl	48 <ITM_SendString>
  30e:	e7f4      	b.n	2fa <task2_handler+0x6>
- 310:	00000014 	.word	0x00000014
+ 310:	00000014 	andeq	r0, r0, r4, lsl r0
 
 00000314 <task3_handler>:
  314:	b580      	push	{r7, lr}
@@ -359,7 +359,7 @@ Disassembly of section .text:
  328:	4618      	mov	r0, r3
  32a:	f7ff fffe 	bl	48 <ITM_SendString>
  32e:	e7f4      	b.n	31a <task3_handler+0x6>
- 330:	00000028 	.word	0x00000028
+ 330:	00000028 	andeq	r0, r0, r8, lsr #32
 
 00000334 <task4_handler>:
  334:	b580      	push	{r7, lr}
@@ -374,7 +374,7 @@ Disassembly of section .text:
  348:	4618      	mov	r0, r3
  34a:	f7ff fffe 	bl	48 <ITM_SendString>
  34e:	e7f4      	b.n	33a <task4_handler+0x6>
- 350:	0000003c 	.word	0x0000003c
+ 350:	0000003c 	andeq	r0, r0, ip, lsr r0
 
 00000354 <HardFault_Handler>:
  354:	b580      	push	{r7, lr}
@@ -382,7 +382,7 @@ Disassembly of section .text:
  358:	4801      	ldr	r0, [pc, #4]	@ (360 <HardFault_Handler+0xc>)
  35a:	f7ff fffe 	bl	0 <puts>
  35e:	e7fe      	b.n	35e <HardFault_Handler+0xa>
- 360:	00000050 	.word	0x00000050
+ 360:	00000050 	andeq	r0, r0, r0, asr r0
 
 00000364 <MemManage_Handler>:
  364:	b580      	push	{r7, lr}
@@ -390,7 +390,7 @@ Disassembly of section .text:
  368:	4801      	ldr	r0, [pc, #4]	@ (370 <MemManage_Handler+0xc>)
  36a:	f7ff fffe 	bl	0 <puts>
  36e:	e7fe      	b.n	36e <MemManage_Handler+0xa>
- 370:	00000068 	.word	0x00000068
+ 370:	00000068 	andeq	r0, r0, r8, rrx
 
 00000374 <BusFault_Handler>:
  374:	b580      	push	{r7, lr}
@@ -398,4 +398,91 @@ Disassembly of section .text:
  378:	4801      	ldr	r0, [pc, #4]	@ (380 <BusFault_Handler+0xc>)
  37a:	f7ff fffe 	bl	0 <printf>
  37e:	e7fe      	b.n	37e <BusFault_Handler+0xa>
- 380:	00000088 	.word	0x00000088
+ 380:	00000088 	andeq	r0, r0, r8, lsl #1
+
+Disassembly of section .data:
+
+00000000 <PSP_of_tasks>:
+   0:	20020000 	andcs	r0, r2, r0
+   4:	2001fc00 	andcs	pc, r1, r0, lsl #24
+   8:	2001f800 	andcs	pc, r1, r0, lsl #16
+   c:	2001f400 	andcs	pc, r1, r0, lsl #8
+
+Disassembly of section .rodata:
+
+00000000 <.rodata>:
+   0:	74206e69 	strtvc	r6, [r0], #-3689	@ 0xfffff197
+   4:	206b7361 	rsbcs	r7, fp, r1, ror #6
+   8:	61682031 	cmnvs	r8, r1, lsr r0
+   c:	656c646e 	strbvs	r6, [ip, #-1134]!	@ 0xfffffb92
+  10:	00000a72 	andeq	r0, r0, r2, ror sl
+  14:	74206e69 	strtvc	r6, [r0], #-3689	@ 0xfffff197
+  18:	206b7361 	rsbcs	r7, fp, r1, ror #6
+  1c:	61682032 	cmnvs	r8, r2, lsr r0
+  20:	656c646e 	strbvs	r6, [ip, #-1134]!	@ 0xfffffb92
+  24:	00000a72 	andeq	r0, r0, r2, ror sl
+  28:	74206e69 	strtvc	r6, [r0], #-3689	@ 0xfffff197
+  2c:	206b7361 	rsbcs	r7, fp, r1, ror #6
+  30:	61682033 	cmnvs	r8, r3, lsr r0
+  34:	656c646e 	strbvs	r6, [ip, #-1134]!	@ 0xfffffb92
+  38:	00000a72 	andeq	r0, r0, r2, ror sl
+  3c:	74206e69 	strtvc	r6, [r0], #-3689	@ 0xfffff197
+  40:	206b7361 	rsbcs	r7, fp, r1, ror #6
+  44:	61682034 	cmnvs	r8, r4, lsr r0
+  48:	656c646e 	strbvs	r6, [ip, #-1134]!	@ 0xfffffb92
+  4c:	00000a72 	andeq	r0, r0, r2, ror sl
+  50:	65637865 	strbvs	r7, [r3, #-2149]!	@ 0xfffff79b
+  54:	6f697470 	svcvs	0x00697470
+  58:	6e69206e 	cdpvs	0, 6, cr2, cr9, cr14, {3}
+  5c:	72616820 	rsbvc	r6, r1, #32, 16	@ 0x200000
+  60:	61662064 	cmnvs	r6, r4, rrx
+  64:	00746c75 	rsbseq	r6, r4, r5, ror ip
+  68:	65637865 	strbvs	r7, [r3, #-2149]!	@ 0xfffff79b
+  6c:	6f697470 	svcvs	0x00697470
+  70:	6e69206e 	cdpvs	0, 6, cr2, cr9, cr14, {3}
+  74:	6d654d20 	stclvs	13, cr4, [r5, #-128]!	@ 0xffffff80
+  78:	616e614d 	cmnvs	lr, sp, asr #2
+  7c:	485f6567 	ldmdami	pc, {r0, r1, r2, r5, r6, r8, sl, sp, lr}^	@ <UNPREDICTABLE>
+  80:	6c646e61 	stclvs	14, cr6, [r4], #-388	@ 0xfffffe7c
+  84:	00007265 	andeq	r7, r0, r5, ror #4
+  88:	65637865 	strbvs	r7, [r3, #-2149]!	@ 0xfffff79b
+  8c:	6f697470 	svcvs	0x00697470
+  90:	6e69206e 	cdpvs	0, 6, cr2, cr9, cr14, {3}
+  94:	73754220 	cmnvc	r5, #32, 4
+  98:	6c756146 	ldfvse	f6, [r5], #-280	@ 0xfffffee8
+  9c:	61485f74 	hvcvs	34292	@ 0x85f4
+  a0:	656c646e 	strbvs	r6, [ip, #-1134]!	@ 0xfffffb92
+  a4:	Address 0xa4 is out of bounds.
+
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	@ 0x3700
+   4:	3128203a 			@ <UNDEFINED> instruction: 0x3128203a
+   8:	33313a35 	teqcc	r1, #217088	@ 0x35000
+   c:	722e322e 	eorvc	r3, lr, #-536870910	@ 0xe0000002
+  10:	2d316c65 	ldccs	12, cr6, [r1, #-404]!	@ 0xfffffe6c
+  14:	31202932 			@ <UNDEFINED> instruction: 0x31202932
+  18:	2e322e33 	mrccs	14, 1, r2, cr2, cr3, {1}
+  1c:	30322031 	eorscc	r2, r2, r1, lsr r0
+  20:	30313332 	eorscc	r3, r1, r2, lsr r3
+  24:	Address 0x24 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00002d41 	andeq	r2, r0, r1, asr #26
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000023 	andeq	r0, r0, r3, lsr #32
+  10:	2d453705 	stclcs	7, cr3, [r5, #-20]	@ 0xffffffec
+  14:	0d06004d 	stceq	0, cr0, [r6, #-308]	@ 0xfffffecc
+  18:	02094d07 	andeq	r4, r9, #448	@ 0x1c0
+  1c:	01140412 	tsteq	r4, r2, lsl r4
+  20:	03170115 	tsteq	r7, #1073741829	@ 0x40000005
+  24:	01190118 	tsteq	r9, r8, lsl r1
+  28:	061e011a 			@ <UNDEFINED> instruction: 0x061e011a
+  2c:	Address 0x2c is out of bounds.
+

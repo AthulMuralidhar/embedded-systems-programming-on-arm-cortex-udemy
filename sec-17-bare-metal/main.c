@@ -17,6 +17,13 @@ main.o is pure binary
 - `-c`: stop at compile time, do not link
 - `-S`: stop at assmebly language do not compile
 
+
+- to find the disassembly:
+arm-none-eabi-objdump -d main.o > main.log
+for all sections:
+arm-none-eabi-objdump -D main.o > main.log
+
+
  */
 
 
