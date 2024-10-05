@@ -234,50 +234,50 @@ void init_systick_timer(uint32_t freq) {
 }
 
 void task1_handler() {
-char buffer[50]; // global buffer for the printer
+// char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 1 handler\n");
-		ITM_SendString(buffer);
+		// snprintf(buffer, sizeof(buffer), "in task 1 handler\n");
+		// ITM_SendString(buffer);
 	}
 }
 
 void task2_handler() {
-char buffer[50]; // global buffer for the printer
+// char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
-		ITM_SendString(buffer);
+		// snprintf(buffer, sizeof(buffer), "in task 2 handler\n");
+		// ITM_SendString(buffer);
 	}
 }
 
 void task3_handler() {
-char buffer[50]; // global buffer for the printer
+// char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
-		ITM_SendString(buffer);;
+		// snprintf(buffer, sizeof(buffer), "in task 3 handler\n");
+		// ITM_SendString(buffer);;
 	}
 }
 
 void task4_handler() {
-char buffer[50]; // global buffer for the printer
+// char buffer[50]; // global buffer for the printer
 	while (1) {
-		snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
-		ITM_SendString(buffer);
+		// snprintf(buffer, sizeof(buffer), "in task 4 handler\n");
+		// ITM_SendString(buffer);
 	}
 }
 
 void HardFault_Handler() {
-	printf("exception in hard fault\n");
+	// printf("exception in hard fault\n");
 	while (1) {
 	};
 }
 
 void MemManage_Handler() {
-	printf("exception in MemManage_Handler\n");
+	// printf("exception in MemManage_Handler\n");
 	while (1) {
 	};
 }
 void BusFault_Handler() {
-	printf("exception in BusFault_Handlern");
+	// printf("exception in BusFault_Handlern");
 	while (1) {
 	};
 }

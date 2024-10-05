@@ -8,7 +8,7 @@
 
 /*
 VMA - virtual memory address is the address which is mapped to the specific hardware
-LMA - local memory address is the address that the compiler compiles to first before linking
+LMA - load memory address is the address that the compiler compiles to first before linking
       and relocation
 */
 

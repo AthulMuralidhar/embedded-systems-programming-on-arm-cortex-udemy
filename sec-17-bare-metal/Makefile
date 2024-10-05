@@ -1,13 +1,23 @@
 CC=arm-none-eabi-gcc
 CFLAGS= -c -mcpu=cortex-m4 -mthumb -std=gnu11 -O0 -Wall
+LDFLAGS= -nostdlib -T stm32_linker.ld 
 
-all: main.o stm32_startup.o
 
-main.o:main.c
-	$(CC) $(CFLAGS) $^ -o $@
+
+# general commands:
+# $@: target which is the first arg in the recepie
+# $^: is the input 
+
+all: main.o stm32_startup.o run.elf
+
+main.o:main.c # this is a recepie
+	$(CC) $(CFLAGS) $^  -o $@
 
 stm32_startup.o: stm32_startup.c
 	$(CC) $(CFLAGS) $^ -o $@
+
+run.elf: main.o stm32_startup.o   # do not use wildcards here, does not work
+	$(CC) $(LDFLAGS) $^ -o $@
 
 clean:
 	rm -rfv *.o *.elf
