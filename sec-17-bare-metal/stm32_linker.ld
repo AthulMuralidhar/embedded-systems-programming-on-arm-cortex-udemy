@@ -34,6 +34,8 @@ SECTIONS
         *(.isr_vector)
         *(.text)
         *(.rodata)
+        /* align the location counter to the next word boundary*/
+        . = ALIGN(4);
         /* the `.` is the location counter, it gets updated with the length of all the above merged sections */
         _end_of_text_section = .;
     }> FLASH AT> FLASH
@@ -45,12 +47,16 @@ SECTIONS
         */
         _start_of_data_section = .;
         *(.data)
+        . = ALIGN(4);
+        _end_of_data_section = .;
     }> SRAM AT> FLASH
 
     .bss :
     {
         _start_of_bss_section = .;
         *(.bss)
+        *(COMMON)
+        . = ALIGN(4);
         _end_of_bss_section = .;
     }> SRAM
 

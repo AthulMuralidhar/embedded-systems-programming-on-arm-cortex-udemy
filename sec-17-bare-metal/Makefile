@@ -1,6 +1,7 @@
 CC=arm-none-eabi-gcc
 CFLAGS= -c -mcpu=cortex-m4 -mthumb -std=gnu11 -O0 -Wall
-LDFLAGS= -nostdlib -T stm32_linker.ld 
+# the -Map arg builds us a file with the memory map 
+LDFLAGS= -nostdlib -T stm32_linker.ld -Wl,-Map=run.map
 
 
 
@@ -20,4 +21,4 @@ run.elf: main.o stm32_startup.o   # do not use wildcards here, does not work
 	$(CC) $(LDFLAGS) $^ -o $@
 
 clean:
-	rm -rfv *.o *.elf
+	rm -rfv *.o *.elf *.map

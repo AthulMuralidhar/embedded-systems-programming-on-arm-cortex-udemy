@@ -6,6 +6,18 @@
 
 #define STACT_START SRAM_END
 
+// external symbols from the ld file
+extern uint32_t _end_of_text_section;
+extern uint32_t _start_of_data_section;
+extern uint32_t _end_of_data_section;
+extern uint32_t _start_of_bss_section;
+extern uint32_t _end_of_bss_section;
+
+
+
+// main's prototype
+int main();
+
 /*
 VMA - virtual memory address is the address which is mapped to the specific hardware
 LMA - load memory address is the address that the compiler compiles to first before linking
@@ -223,9 +235,34 @@ void Default_Handler()
 void Reset_Handler()
 {
     // 1. copy .data section to SRAM
-    // 2. initialise the .bss section to zero in sram
+    uint32_t SRAM_size = &_end_of_data_section - &_start_of_data_section;
+
+    uint8_t *pSource_Addr = (uint8_t*) &_end_of_text_section; // in FLASH
+    uint8_t *pDestination_Addr = (uint8_t*)(uintptr_t) &_start_of_data_section; // in SRAM
+
+
+    for (uint32_t i = 0; i < SRAM_size; i++)
+    {
+        // copy data from FLASH to SRAM
+        *pDestination_Addr++ = *pSource_Addr++;
+    }
+    
+
+    // 2. initialise the .bss section to zero in SRAM
+    uint32_t bss_size = &_end_of_bss_section - &_start_of_bss_section;
+    pDestination_Addr = (uint8_t*)(uintptr_t) &_start_of_bss_section; // in SRAM
+
+    for (uint32_t i = 0; i < bss_size; i++)
+    {
+        // set the dest addr to 0 and increment
+        *pDestination_Addr++ = 0;
+    }
+    
+
+
     // call init functoin of standard library
     // call main()
+    main();
 
 }
 
