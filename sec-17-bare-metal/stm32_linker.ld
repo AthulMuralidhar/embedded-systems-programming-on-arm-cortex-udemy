@@ -33,7 +33,11 @@ SECTIONS
     {
         *(.isr_vector)
         *(.text)
+        *(.text.*)
+        *(.init)
+        *(.fini)
         *(.rodata)
+        *(.rodata.*)
         /* align the location counter to the next word boundary*/
         . = ALIGN(4);
         /* the `.` is the location counter, it gets updated with the length of all the above merged sections */
@@ -47,6 +51,7 @@ SECTIONS
         */
         _start_of_data_section = .;
         *(.data)
+        *(.data.*)
         . = ALIGN(4);
         _end_of_data_section = .;
     }> SRAM AT> FLASH
@@ -54,10 +59,14 @@ SECTIONS
     .bss :
     {
         _start_of_bss_section = .;
+        __bss_start__ = _start_of_bss_section;
         *(.bss)
         *(COMMON)
         . = ALIGN(4);
         _end_of_bss_section = .;
+        __bss_end__ = _end_of_bss_section;
+        . = ALIGN(4);
+        end = .;  /* end here points to heap start in syscalls.c */
     }> SRAM
 
 }

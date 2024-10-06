@@ -1,7 +1,11 @@
 CC=arm-none-eabi-gcc
 CFLAGS= -c -mcpu=cortex-m4 -mthumb -std=gnu11 -O0 -Wall
+#  linker without any lib
 # the -Map arg builds us a file with the memory map 
-LDFLAGS= -nostdlib -T stm32_linker.ld -Wl,-Map=run.map
+# LDFLAGS= -nostdlib -T stm32_linker.ld -Wl,-Map=run.map
+
+# linker with nano specs 
+LDFLAGS= -specs=nano.specs -T stm32_linker.ld -Wl,-Map=run.map
 
 
 
@@ -9,7 +13,7 @@ LDFLAGS= -nostdlib -T stm32_linker.ld -Wl,-Map=run.map
 # $@: target which is the first arg in the recepie
 # $^: is the input 
 
-all: main.o stm32_startup.o run.elf
+all: main.o stm32_startup.o syscalls.o run.elf
 
 main.o:main.c # this is a recepie
 	$(CC) $(CFLAGS) $^  -o $@
@@ -17,7 +21,11 @@ main.o:main.c # this is a recepie
 stm32_startup.o: stm32_startup.c
 	$(CC) $(CFLAGS) $^ -o $@
 
-run.elf: main.o stm32_startup.o   # do not use wildcards here, does not work
+syscalls.o: syscalls.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+
+run.elf: main.o stm32_startup.o syscalls.o  # do not use wildcards here, does not work
 	$(CC) $(LDFLAGS) $^ -o $@
 
 clean:

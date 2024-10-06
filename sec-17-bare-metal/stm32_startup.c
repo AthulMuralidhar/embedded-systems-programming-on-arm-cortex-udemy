@@ -18,6 +18,9 @@ extern uint32_t _end_of_bss_section;
 // main's prototype
 int main();
 
+// lib c init prototype
+void __libc_init_array();
+
 /*
 VMA - virtual memory address is the address which is mapped to the specific hardware
 LMA - load memory address is the address that the compiler compiles to first before linking
@@ -261,6 +264,8 @@ void Reset_Handler()
 
 
     // call init functoin of standard library
+    __libc_init_array();
+
     // call main()
     main();
 
