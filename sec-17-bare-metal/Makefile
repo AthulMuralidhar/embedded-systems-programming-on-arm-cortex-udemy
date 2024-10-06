@@ -1,11 +1,11 @@
 CC=arm-none-eabi-gcc
-CFLAGS= -c -mcpu=cortex-m4 -mthumb -std=gnu11 -O0 -Wall
+CFLAGS= -c -mcpu=cortex-m4 -mthumb -mfloat-abi=soft  -std=gnu11 -O0 -Wall
 #  linker without any lib
 # the -Map arg builds us a file with the memory map 
 # LDFLAGS= -nostdlib -T stm32_linker.ld -Wl,-Map=run.map
 
 # linker with nano specs 
-LDFLAGS= -specs=nano.specs -T stm32_linker.ld -Wl,-Map=run.map
+LDFLAGS= -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -specs=nano.specs -T stm32_linker.ld -Wl,-Map=run.map
 
 
 
