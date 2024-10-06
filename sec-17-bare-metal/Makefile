@@ -22,3 +22,7 @@ run.elf: main.o stm32_startup.o   # do not use wildcards here, does not work
 
 clean:
 	rm -rfv *.o *.elf *.map
+
+load:
+	openocd -f stm32f4_config.cfg
+	# openocd -f board/stm32f4discovery.cfg

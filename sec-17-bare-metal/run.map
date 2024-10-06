@@ -13,7 +13,7 @@ Linker script and memory map
 LOAD main.o
 LOAD stm32_startup.o
 
-.text           0x08000000      0x524
+.text           0x08000000      0x520
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 stm32_startup.o
                 0x08000000                vectors
@@ -38,7 +38,7 @@ LOAD stm32_startup.o
                 0x0800047c                HardFault_Handler
                 0x08000484                MemManage_Handler
                 0x0800048c                BusFault_Handler
- .text          0x08000494       0x90 stm32_startup.o
+ .text          0x08000494       0x8c stm32_startup.o
                 0x08000494                RTC_Alarm_IRQHandler
                 0x08000494                HASH_RNG_IRQHandler
                 0x08000494                EXTI2_IRQHandler
@@ -128,49 +128,49 @@ LOAD stm32_startup.o
                 0x08000494                DMA1_Stream3_IRQHandler
                 0x0800049c                Reset_Handler
  *(.rodata)
-                0x08000524                        . = ALIGN (0x4)
-                0x08000524                        _end_of_text_section = .
+                0x08000520                        . = ALIGN (0x4)
+                0x08000520                        _end_of_text_section = .
 
-.glue_7         0x08000524        0x0
- .glue_7        0x08000524        0x0 linker stubs
+.glue_7         0x08000520        0x0
+ .glue_7        0x08000520        0x0 linker stubs
 
-.glue_7t        0x08000524        0x0
- .glue_7t       0x08000524        0x0 linker stubs
+.glue_7t        0x08000520        0x0
+ .glue_7t       0x08000520        0x0 linker stubs
 
-.vfp11_veneer   0x08000524        0x0
- .vfp11_veneer  0x08000524        0x0 linker stubs
+.vfp11_veneer   0x08000520        0x0
+ .vfp11_veneer  0x08000520        0x0 linker stubs
 
-.v4_bx          0x08000524        0x0
- .v4_bx         0x08000524        0x0 linker stubs
+.v4_bx          0x08000520        0x0
+ .v4_bx         0x08000520        0x0 linker stubs
 
-.iplt           0x08000524        0x0
- .iplt          0x08000524        0x0 main.o
+.iplt           0x08000520        0x0
+ .iplt          0x08000520        0x0 main.o
 
-.rel.dyn        0x08000524        0x0
- .rel.iplt      0x08000524        0x0 main.o
+.rel.dyn        0x08000520        0x0
+ .rel.iplt      0x08000520        0x0 main.o
 
-.data           0x20000000       0x10 load address 0x08000524
+.data           0x20000000       0x14 load address 0x08000520
                 0x20000000                        _start_of_data_section = .
  *(.data)
- .data          0x20000000       0x10 main.o
+ .data          0x20000000       0x11 main.o
                 0x20000000                PSP_of_tasks
- .data          0x20000010        0x0 stm32_startup.o
-                0x20000010                        . = ALIGN (0x4)
-                0x20000010                        _end_of_data_section = .
+                0x20000010                current_task
+ .data          0x20000011        0x0 stm32_startup.o
+                0x20000014                        . = ALIGN (0x4)
+ *fill*         0x20000011        0x3 
+                0x20000014                        _end_of_data_section = .
 
-.igot.plt       0x20000010        0x0 load address 0x08000534
- .igot.plt      0x20000010        0x0 main.o
+.igot.plt       0x20000014        0x0 load address 0x08000534
+ .igot.plt      0x20000014        0x0 main.o
 
-.bss            0x20000010       0x14 load address 0x08000534
-                0x20000010                        _start_of_bss_section = .
+.bss            0x20000014       0x10 load address 0x08000534
+                0x20000014                        _start_of_bss_section = .
  *(.bss)
- .bss           0x20000010       0x11 main.o
-                0x20000010                task_handlers
-                0x20000020                current_task
- .bss           0x20000021        0x0 stm32_startup.o
+ .bss           0x20000014       0x10 main.o
+                0x20000014                task_handlers
+ .bss           0x20000024        0x0 stm32_startup.o
  *(COMMON)
                 0x20000024                        . = ALIGN (0x4)
- *fill*         0x20000021        0x3 
                 0x20000024                        _end_of_bss_section = .
 OUTPUT(run.elf elf32-littlearm)
 LOAD linker stubs

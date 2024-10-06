@@ -60,7 +60,7 @@ T4_STACK_START };
 
 uint32_t task_handlers[MAX_TASKS];
 
-uint8_t current_task = 0;  // task 1 is running
+uint8_t current_task = 1;  // task 2 is running
 
 
 int main(void) {

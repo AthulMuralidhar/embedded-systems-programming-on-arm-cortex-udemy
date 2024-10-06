@@ -235,7 +235,7 @@ void Default_Handler()
 void Reset_Handler()
 {
     // 1. copy .data section to SRAM
-    uint32_t SRAM_size = &_end_of_data_section - &_start_of_data_section;
+    uint32_t SRAM_size = (uint32_t)&_end_of_data_section - (uint32_t)&_start_of_data_section;
 
     uint8_t *pSource_Addr = (uint8_t*) &_end_of_text_section; // in FLASH
     uint8_t *pDestination_Addr = (uint8_t*)(uintptr_t) &_start_of_data_section; // in SRAM
@@ -249,7 +249,7 @@ void Reset_Handler()
     
 
     // 2. initialise the .bss section to zero in SRAM
-    uint32_t bss_size = &_end_of_bss_section - &_start_of_bss_section;
+    uint32_t bss_size = (uint32_t)&_end_of_bss_section - (uint32_t)&_start_of_bss_section;
     pDestination_Addr = (uint8_t*)(uintptr_t) &_start_of_bss_section; // in SRAM
 
     for (uint32_t i = 0; i < bss_size; i++)
